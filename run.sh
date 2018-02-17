@@ -6,12 +6,12 @@ FOLDER=Bachelorarbeit
 if [ -z "$1" ]
 then
 	echo " ======== Copying src/ to $HOST ======== "
-	rsync -r --delete  --exclude='data/' ./ $HOST:$FOLDER
+	rsync -r --delete --include='*/' --exclude='data/' --include='*.py' --exclude='*'  ./ $HOST:$FOLDER
 
 	echo ""
 
 	echo " ======== Running on $HOST ======== "
-	ssh -t $HOST "cd $FOLDER; screen python3 main.py"
+	ssh -t $HOST "cd $FOLDER; screen bash -c 'python3 main.py $2; bash'"
 
 elif [ $1 == "recover" ]
 then
