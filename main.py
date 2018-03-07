@@ -29,7 +29,7 @@ save_dir = path + "save"
 log_dir = path + "logs"
 
 starting_time = dt.now()
-os.system("python3 train.py --init_from=en/save --data_dir=data/" + data_dir + " --save_dir=" + save_dir + " --log_dir=" + log_dir + " --model=" + model + " --rnn_size=" + rnn_size + " --num_layers=" + num_layers + " --batch_size=" + batch_size + " --seq_length=" + seq_length + " --num_epochs=" + num_epochs + " --learning_rate=" + learning_rate + " --decay_rate=" + decay_rate)
+os.system("python3 train.py --data_dir=data/" + data_dir + " --save_dir=" + save_dir + " --log_dir=" + log_dir + " --model=" + model + " --rnn_size=" + rnn_size + " --num_layers=" + num_layers + " --batch_size=" + batch_size + " --seq_length=" + seq_length + " --num_epochs=" + num_epochs + " --learning_rate=" + learning_rate + " --decay_rate=" + decay_rate)
 print("training time %s" % str(dt.now() - starting_time))
 
 starting_time = dt.now()
