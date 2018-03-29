@@ -97,8 +97,11 @@ class Model():
         def weighted_pick(weights):
             t = np.cumsum(weights)
             s = np.sum(weights)
-            return(int(np.searchsorted(t, np.random.rand(1)*s)))
-            #change this to numpy random multinomial
+            result = int(np.searchsorted(t, np.random.rand(1)*s))
+            if result >= len(weights):
+                return weighted_pick(weights)
+            else:
+                return result
 
         ret = prime
         char = prime[-1]

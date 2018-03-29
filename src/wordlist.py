@@ -7,7 +7,7 @@ target_name = filename + "_wordlist.txt"
 
 word_dict = {}
 
-infile = open(filename + ".txt")
+infile = open(filename + ".txt", "r", encoding="UTF-8")
 for line in infile:
     words = word_tokenize(line)
     for word in words:
@@ -16,7 +16,7 @@ for line in infile:
         word_dict[word] += 1
 infile.close()
 
-target_file = open(target_name, "w")
+target_file = open(target_name, "w", encoding="UTF-8")
 
 for word, freq in word_dict.items():
     target_file.write(word + " " + str(freq) + "\n")

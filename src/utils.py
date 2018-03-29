@@ -30,11 +30,13 @@ class TextLoader():
         self.reset_batch_pointer()
 
     def preprocess(self, input_file, vocab_file, tensor_file):
-        with open(input_file, "r") as f:
+        with open(input_file, "r", encoding="UTF-8") as f:
             data = f.read()
-        letters = re.compile(r'[^a-zäöüA-ZÄÖÜ ]*')
+        letters = re.compile(r'\W+')
+        numbers = re.compile(r'[0-9]+')
         spaces = re.compile(r'\s+')
-        data = letters.sub("", data)
+        data = letters.sub(" ", data)
+        data = numbers.sub(" ", data)
         data = spaces.sub(" ", data)
         counter = collections.Counter(data)
         count_pairs = sorted(counter.items(), key=lambda x: -x[1])

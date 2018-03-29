@@ -93,7 +93,10 @@ def train(args):
 
     model = Model(args)
 
-    with tf.Session() as sess:
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth=True
+
+    with tf.Session(config=config) as sess:
         # instrument for tensorboard
         summaries = tf.summary.merge_all()
         writer = tf.summary.FileWriter(
@@ -114,9 +117,14 @@ def train(args):
                 start = time.time()
                 x, y = data_loader.next_batch()
                 feed = {model.input_data: x, model.targets: y}
-                for i, (c, h) in enumerate(model.initial_state):
-                    feed[c] = state[i].c
-                    feed[h] = state[i].h
+                if args.model == "lstm" or args.model == "nas":
+                    for i, (c, h) in enumerate(model.initial_state):
+                        feed[c] = state[i].c
+                        feed[h] = state[i].h
+                elif args.model == "rnn" or args.model == "gru":
+                    for i, x in enumerate(model.initial_state):
+                        feed[x] = state[i]
+
                 # instrument for tensorboard
                 summ, train_loss, state, _ = sess.run([summaries, model.cost, model.final_state, model.train_op], feed)
                 writer.add_summary(summ, e * data_loader.num_batches + b)
