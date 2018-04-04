@@ -1,0 +1,109 @@
+\documentclass[11pt,a4paper,twoside,openright]{scrbook}
+\usepackage{clba}
+
+% Per Kapitel Nummerierung von Graphiken und Tabellen
+\usepackage{chngcntr}
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+
+
+% Hier die eigenen Daten eintragen
+\global\fach{Computerlinguistik}
+\global\arbeit{Bachelorarbeit}
+\global\titel{Titel der Arbeit}
+\global\bearbeiter{Max Mustermann}
+\global\betreuer{Dr. Max Mustermann}
+\global\pruefer{Dr. Max Mustermann}
+\global\universitaet{Ludwig- Maximilians- Universität München}
+\global\fakultaet{Fakultät für Sprach- und Literaturwissenschaften}
+\global\department{Department 2}
+
+\global\abgabetermin{04. Juni 2012}
+\global\bearbeitungszeit{26. März - 04. Juni 2012}
+\global\ort{München}
+
+
+\begin{document}
+
+% Deckblatt
+\deckblatt
+
+\pagestyle{scrheadings}
+\pagenumbering{gobble}
+
+% Erklärung fürs Prüfungsamt
+\erklaerung
+
+% Zusammenfassung
+\addchap{Abstract}
+\thispagestyle{scrplain}
+\noindent
+Dieses Dokument dient als Muster für eine Ausarbeitung einer
+Bachelorarbeit am CIS und wird in deutscher oder englischer Sprache
+erstellt (hier max. 250 Wörter)
+
+% Inhaltsverzeichnis
+\pagenumbering{Roman}
+
+\tableofcontents
+
+% Text mit arabischer Nummerierung
+\pagenumbering{arabic}
+
+\chapter{Kapitel Eins}
+\cite{irbook}
+
+\section{Ein Abschnitt}
+Mein Name ist Hase und ich weiß von nichts. Das ist ein Testtext. Mein Name ist
+Igel und ich weiß auch von nichts.
+
+\subsection{Ein Unterabschnitt}
+Blabla. Hier ein Unterabschnitt.
+
+\subsubsection{Ein Unterunterabschnitt}
+\label{sec:a}
+Blabla. Hier ein Unterunterabschnitt.
+
+\subsubsection{Noch ein Unterunterabschnitt}
+\label{sec:b}
+
+Wer \ref{sec:a} sagt, muss auch \ref{sec:b} sagen.
+
+\subsection{Noch ein Unterabschnitt}
+
+Das ist ein gewöhnlicher Absatz.
+
+\paragraph{Ein Absatz mit Titel}
+Paragraphen gibts auch.
+
+\subparagraph{Ein Unterabsatz mit Titel}
+Und dann auch noch Unterparagraphen.
+
+\subsection*{Ein nicht nummerierter Unterabschnitt}
+Dieser Unterabschnitt erscheint nicht im Inhaltsverzeichnis.
+\newpage
+
+\section{Beispiele}
+Blabla.
+\newpage
+
+\section{Mehr Beispiele}
+Blabla.
+\newpage
+
+%Beispielliteratur
+\bibliographystyle{apalike}
+\bibliography{Bachelorarbeit}
+\newpage
+
+% Abbildungsverzeichnis (kann auch nach dem Inhaltsverzeichnis kommen)
+\listoffigures
+\newpage
+
+% Tabellenverzeichnis (kann auch nach dem Inhaltsverzeichnis kommen)
+\listoftables
+\newpage
+
+\addchap{Inhalt der beigelegten CD}
+
+\end{document}

@@ -13,7 +13,7 @@ languages = [ name for name in os.listdir(data_dir) if os.path.isdir(os.path.joi
 
 for language in languages:
     try:
-        if os.stat(data_dir + language + "/" + filetype + ".txt").st_size == 0:
+        if os.stat(data_dir + language + "/generated.txt").st_size == 0:
             print("empty file found for", language)
             continue
         huge_dict = {}
@@ -69,11 +69,11 @@ for language in languages:
             np.save(outfile, outlist)
             outfile.close()
 
-        write(token_x, token_y,"token_token_performance")
-        write(token_x, type_y_for_token_x,"token_type_performance")
-        write(type_x, type_y_for_type_x,"type_type_performance")
-        write(char_x, token_y, "char_token_performance")
-        write(char_x, type_y_for_token_x, "char_type_performance")
+        write(token_x, token_y,"gen_token_token_performance")
+        write(token_x, type_y_for_token_x,"gen_token_type_performance")
+        write(type_x, type_y_for_type_x,"gen_type_type_performance")
+        write(char_x, token_y, "gen_char_token_performance")
+        write(char_x, type_y_for_token_x, "gen_char_type_performance")
 
     except OSError:
         print("no generated found for", language)

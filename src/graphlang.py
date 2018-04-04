@@ -33,20 +33,17 @@ def plot(plot_type):
 
 
     plt.legend(captions, loc='upper right', fontsize=4)
-    if plot_type == "generated_types":
-        plt.xlabel("number of tokens in generated")
-        plt.ylabel("number of types in generated")
-    elif plot_type == "huge_types":
+    if plot_type == "generated_types" or plot_type == "huge_types":
         plt.xlabel("number of tokens")
         plt.ylabel("number of types")
-    elif plot_type == "huge_token_token_performance":
-        plt.xlabel("Number of tokens in huge")
+    elif plot_type == "token_token_performance":
+        plt.xlabel("Number of tokens")
         plt.ylabel("Performance (by tokens)")
-    elif plot_type == "huge_token_type_performance":
-        plt.xlabel("Number of tokens in huge")
+    elif plot_type == "token_type_performance":
+        plt.xlabel("Number of tokens")
         plt.ylabel("Performance (by types)")
-    elif plot_type == "huge_type_type_performance":
-        plt.xlabel("Number of types in huge")
+    elif plot_type == "type_type_performance":
+        plt.xlabel("Number of types")
         plt.ylabel("Performance (by types)")
     elif plot_type == "good_freqs":
         plt.xlabel("Word Frequency")

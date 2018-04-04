@@ -11,7 +11,7 @@ import re
 language = sys.argv[1]
 
 model = "lstm" #rnn, gru, lstm, nas
-n_generate = "1000000"
+n_generate = "500000"
 sample_mode = "1" #0 to use max at each timestep, 1 to sample at each timestep, 2 to sample on spaces')
 rnn_size = "128"
 num_layers = "2"
@@ -28,9 +28,9 @@ save_dir = path + "save"
 log_dir = path + "logs"
 
 starting_time = dt.now()
-os.system("python3 src/train.py --data_dir=data/" + data_dir + " --save_dir=" + save_dir + " --log_dir=" + log_dir + " --model=" + model + " --rnn_size=" + rnn_size + " --num_layers=" + num_layers + " --batch_size=" + batch_size + " --seq_length=" + seq_length + " --num_epochs=" + num_epochs + " --learning_rate=" + learning_rate + " --decay_rate=" + decay_rate)
+os.system("export PYTHONIOENCODING=utf-8; python3 src/train.py --data_dir=" + data_dir + " --save_dir=" + save_dir + " --log_dir=" + log_dir + " --model=" + model + " --rnn_size=" + rnn_size + " --num_layers=" + num_layers + " --batch_size=" + batch_size + " --seq_length=" + seq_length + " --num_epochs=" + num_epochs + " --learning_rate=" + learning_rate + " --decay_rate=" + decay_rate)
 print("training time %s" % str(dt.now() - starting_time))
 
 starting_time = dt.now()
-os.system("python3 src/sample.py -n=" +n_generate + " --save_dir=" + save_dir + " > " + path + "generated.txt")
+os.system("export PYTHONIOENCODING=utf-8; python3 src/sample.py -n=" +n_generate + " --save_dir=" + save_dir + " > " + path + "generated.txt")
 print("sampling time %s" % str(dt.now() - starting_time))

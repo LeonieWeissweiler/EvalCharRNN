@@ -24,7 +24,6 @@ GPU=$3
 # # Position: Bachelorarbeit
 # cd ../../..
 
-export CUDA_VISIBLE_DEVICES= $GPU
-mkdir generated/$LANG
+export CUDA_VISIBLE_DEVICES=$GPU
 python3 src/generate.py $LANG
 python3 src/wordlist.py data/wikipedia/$LANG/generated

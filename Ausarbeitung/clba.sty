@@ -1,0 +1,134 @@
+%%
+%% clba.sty
+%% Idee von Stefan Brecheisen, LFE fuer Datenbanksysteme am
+%% Institut fuer Informatik der LMU Muenchen
+%%
+%% angepasst für Bachelorarbeit im Studienfach Computerlinguistik
+%% von Ursula Seisenberger
+%% modifiziert für den Stand April 2015 von Fabian Dreer
+%%
+
+\def\fileversion{v1.2}
+\def\filedate{2015/04/07}
+
+\NeedsTeXFormat{LaTeX2e}
+
+\ProvidesPackage{clba}[\filedate\space\fileversion]
+
+%%
+%% benoetigte Pakete
+%%
+%% Wenn es deutsch sein soll:
+%% \RequirePackage[german]{babel}
+%% sonst:
+\RequirePackage[english,german]{babel}
+\RequirePackage{amsmath}
+\RequirePackage[headsepline,plainheadsepline]{scrpage2}
+\RequirePackage[nottoc]{tocbibind}
+\RequirePackage{graphicx}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{url}
+
+%%
+%% Einstellungen
+%%
+
+% Seitenränder
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=3.5cm]{geometry}
+
+\headmark
+%%% % Gestaltung der Kopf- und Fußzeilen
+\usepackage[headsepline,plainheadsepline]{scrpage2}
+\pagestyle{scrheadings}
+
+% Setze "plain" Stil, sodass auch auf Seiten mit Kapitelbeginn und dem
+% Inhaltsverzeichnis die Kopfzeile angezeigt wird
+\ohead[\the\titel]{\headmark}
+\automark[chapter]{chapter}
+
+% Subsubsections nummerieren und ins Inhaltsverzeichnis aufnehmen
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+% Paket für semantisches Markup von Anführungszeichen
+\usepackage[babel,german=quotes,english=british]{csquotes}
+
+%%
+%% Globale Variablen
+%%
+\newtoks\fach             % Studiengang
+\newtoks\fakultaet        % Fakultät für Sprach- und Literaturwissenschaften
+\newtoks\department       % Department 2
+\newtoks\arbeit           % Art der Arbeit
+\newtoks\titel            % Titel der Arbeit
+\newtoks\bearbeiter       % Name des Bearbeiters
+\newtoks\betreuer         % Name des Betreuers
+\newtoks\abgabetermin     % Datum der Abgabe
+\newtoks\bearbeitungszeit % bearbeitungszeit
+\newtoks\pruefer          % Aufgabensteller, im Allgemeinen identisch mit dem Betreuer
+\newtoks\universitaet     % im allgemeinen Ludwig Maximilians Universität
+\newtoks\ort              % Wohnort des Bearbeiters
+
+%%
+%% Ausgabe des Deckblatts
+%%
+\newcommand{\deckblatt}{
+  \begin{titlepage}
+  ~
+  \vspace{-2cm}
+  \begin{center}
+   \parbox[t]{160mm}{ \includegraphics[width=160mm]{images/lmu_cis_logo.png} }
+  \end{center}
+
+  \begin{center}
+      \vspace{3cm}\huge
+      \the\arbeit\\
+      {\large im Studiengang \the\fach}\\
+            {\large an der \the\universitaet}\\
+            {\large \the\fakultaet}\\
+
+      \vspace{2cm}\huge
+      \the\titel
+
+
+      \vspace{2cm}\large
+            vorgelegt von\\
+      \the\bearbeiter
+
+      \vspace{\fill}\normalsize
+      \begin{tabular}{ll}
+        Betreuer:             & \the\betreuer\\
+        Prüfer:               & \the\pruefer\\
+        Bearbeitungszeitraum: & \the\bearbeitungszeit
+      \end{tabular}
+
+    \end{center}
+
+  \end{titlepage}
+}
+
+% Selbstständigkeitserklärung
+\newcommand{\erklaerung}{
+    \newpage
+    \thispagestyle{scrplain}
+    \begin{center}
+      \textbf{Selbstständigkeitserklärung}
+
+      \vspace{1cm}
+
+      \begin{minipage}{9.8cm}
+        Ich erkläre hiermit, dass ich die vorliegende Arbeit selbständig
+        angefertigt, alle Zitate als solche kenntlich gemacht sowie alle
+        benutzten Quellen und Hilfsmittel angegeben habe.
+
+        \vspace{1cm}
+        \the\ort, den \the\abgabetermin
+
+        \vspace{1.5cm}
+        \makebox[9.8cm]{\dotfill}\\
+        \the\bearbeiter
+
+      \end{minipage}
+
+    \end{center}
+}
