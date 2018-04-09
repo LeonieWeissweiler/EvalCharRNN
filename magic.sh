@@ -26,4 +26,4 @@ GPU=$3
 
 export CUDA_VISIBLE_DEVICES=$GPU
 python3 src/generate.py $LANG
-python3 src/wordlist.py data/wikipedia/$LANG/generated
+python3 src/wordlist.py data/wikipedia/$LANG/rnn/generated

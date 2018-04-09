@@ -1,4 +1,18 @@
 #!/bin/bash
+bash magic.sh ja 0B5lWReQPSvmGYzlWMC1KcV9kVzQ 3
+bash magic.sh nl 0B5lWReQPSvmGT19qd0UxaU9ZVjQ 3
+bash magic.sh en 0B5lWReQPSvmGOTNxdHo3b0lMc3c &
+bash magic.sh de 0B5lWReQPSvmGNm0zdUgyakZBeVU &
+bash magic.sh lv 0B5lWReQPSvmGdEZMc3hqMWFnZ1k &
+bash magic.sh hi 0B5lWReQPSvmGLUtnWk1mN2VOU0k &
+bash magic.sh es 0B5lWReQPSvmGOXdCZEZPSnZoYXc &
+bash magic.sh it 0B5lWReQPSvmGSHdkcDhlaGhMVnc &
+bash magic.sh fr 0B5lWReQPSvmGdkIxeVJESWcyVU0 &
+bash magic.sh ru 0B5lWReQPSvmGcGJIa196bVQ0Sjg &
+bash magic.sh pl 0B5lWReQPSvmGcHptUXRIQ1JBSjg 3
+bash magic.sh uk 0B5lWReQPSvmGbnVjd1JsOGhfOG8 3
+bash magic.sh pt 0B5lWReQPSvmGR1RkVzBKeUJVYnM 3
+bash magic.sh zh 0B5lWReQPSvmGTE5kMC1EcEpEV2M 3
 bash magic.sh he 0B5lWReQPSvmGWU9NdDhtbUpBbjg 3
 bash magic.sh sv 0B5lWReQPSvmGNVZab2R6U3hqcU0 3
 bash magic.sh ca 0B5lWReQPSvmGLWdHUXQ0c0NuVXc 3
@@ -23,19 +37,4 @@ bash magic.sh sl 0B5lWReQPSvmGempGVWpuNnpDR0U 3
 bash magic.sh et 0B5lWReQPSvmGeFBYbUtYdEJWY3M 3
 bash magic.sh ms 0B5lWReQPSvmGOE5uSVdPTDg3VFU 3
 bash magic.sh el 0B5lWReQPSvmGazIyd2xyZl9KNkE 3
-
-# bash magic.sh ko 0B5lWReQPSvmGQk9QUW5iem9ZZU0 3 # done
-# bash magic.sh ja 0B5lWReQPSvmGYzlWMC1KcV9kVzQ 3 # done
-# bash magic.sh nl 0B5lWReQPSvmGT19qd0UxaU9ZVjQ 3 # done
-# bash magic.sh en 0B5lWReQPSvmGOTNxdHo3b0lMc3c & \ # done
-# bash magic.sh de 0B5lWReQPSvmGNm0zdUgyakZBeVU & \ # done
-# bash magic.sh lv 0B5lWReQPSvmGdEZMc3hqMWFnZ1k & \ # done
-# bash magic.sh hi 0B5lWReQPSvmGLUtnWk1mN2VOU0k & \ # done
-# bash magic.sh es 0B5lWReQPSvmGOXdCZEZPSnZoYXc & \ # done
-# bash magic.sh it 0B5lWReQPSvmGSHdkcDhlaGhMVnc & \ # done
-# bash magic.sh fr 0B5lWReQPSvmGdkIxeVJESWcyVU0 & \ # done
-# bash magic.sh ru 0B5lWReQPSvmGcGJIa196bVQ0Sjg & \ # done
-# bash magic.sh pl 0B5lWReQPSvmGcHptUXRIQ1JBSjg 3
-# bash magic.sh uk 0B5lWReQPSvmGbnVjd1JsOGhfOG8 3
-# bash magic.sh pt 0B5lWReQPSvmGR1RkVzBKeUJVYnM 3
-# bash magic.sh zh 0B5lWReQPSvmGTE5kMC1EcEpEV2M 3
+bash magic.sh ko 0B5lWReQPSvmGQk9QUW5iem9ZZU0 3

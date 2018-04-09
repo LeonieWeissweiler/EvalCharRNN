@@ -21,9 +21,9 @@ num_epochs = "50"
 learning_rate = "0.002"
 decay_rate = "0.97"
 
-path = "data/wikipedia/" + language + "/"
+path = "data/wikipedia/" + language + "/" + model + "/"
 
-data_dir = path
+data_dir = "data/wikipedia/" + language + "/"
 save_dir = path + "save"
 log_dir = path + "logs"
 

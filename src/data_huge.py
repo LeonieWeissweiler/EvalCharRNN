@@ -4,6 +4,7 @@ import numpy as np
 import re
 import os
 
+model = "lstm"
 data_dir = "../data/wikipedia/"
 letters = re.compile(r'\W+')
 numbers = re.compile(r'[0-9]+')
@@ -13,23 +14,29 @@ languages = [ name for name in os.listdir(data_dir) if os.path.isdir(os.path.joi
 
 for language in languages:
     try:
-        if os.stat(data_dir + language + "/generated_wordlist.txt").st_size == 0:
-            print("empty file found for", language)
-            continue
         gen_dict = {}
         huge_file = open(data_dir + language + "/huge.txt")
 
-        gen_file = open(data_dir + language + "/generated_wordlist.txt")
+        if os.stat(data_dir + language + "/" + model + "/generated_wordlist.txt").st_size == 0:
+            print("empty file found for", language)
+            continue
+        gen_file = open(data_dir + language + "/" + model + "/generated_wordlist.txt")
         for line in gen_file:
             word, freq = line.split(" ")
             gen_dict[word] = int(freq)
         gen_file.close()
 
+        input_file = open(data_dir + language + "/" + model + "/input_wordlist.txt")
+        for line in input_file:
+            word, freq = line.split(" ")
+            input_dict[word] = int(freq)
+        input_file.close()
+
         huge_dict = {}
         huge_type_size = 0
         huge_token_size = 0
         gen_good_tokens = 0
-        gen_good_types = 0
+        gen_new_types = 0
         gen_total_tokens = sum(gen_dict.values())
         gen_total_types = len(gen_dict)
         token_x = []
@@ -49,22 +56,23 @@ for language in languages:
                     huge_dict[word] = 1
                     huge_type_size += 1
                     if word in gen_dict:
-                        gen_good_types += 1
                         gen_good_tokens += gen_dict[word]
-                    if huge_type_size % 1000 == 0:
+                        if word not in input_dict:
+                            gen_new_types += 1
+                    if huge_type_size % 100 == 0:
                         type_x.append(huge_type_size)
                         token_y_for_type_x.append(gen_good_tokens / gen_total_tokens)
-                        type_y_for_type_x.append(gen_good_types / gen_total_types)
-                if huge_token_size % 1000 == 0:
+                        type_y_for_type_x.append(gen_new_types)
+                if huge_token_size % 100 == 0:
                     token_x.append(huge_token_size)
                     token_y_for_token_x.append(gen_good_tokens / gen_total_tokens)
-                    type_y_for_token_x.append(gen_good_types / gen_total_types)
+                    type_y_for_token_x.append(gen_new_types)
 
         gen_file.close()
 
         def write(x,y,name):
             outlist = np.array([np.array(x), np.array(y)])
-            outfile = open(data_dir + language + "/" + name + "_data.npy", "wb")
+            outfile = open(data_dir + language + "/" + model + "/" + name + "_data.npy", "wb")
             np.save(outfile, outlist)
             outfile.close()
 

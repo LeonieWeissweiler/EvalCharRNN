@@ -7,8 +7,16 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import seaborn as sns
+import re
 
 data_dir = "../data/wikipedia/"
+model = "lstm"
+huge_re = re.compile(r"huge")
+gen_re = re.compile(r"gen")
+token_x_re = re.compile(r"(huge|gen)\_token")
+type_x_re = re.compile(r"(huge|gen)\_type")
+token_y_re = re.compile(r".*?\_token_performance$")
+type_y_re = re.compile(r".*?\_type_performance$")
 
 def plot(plot_type):
     language_dirs = [ name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]
@@ -17,11 +25,11 @@ def plot(plot_type):
 
     for language in language_dirs:
         try:
-            infile = open(data_dir + language + "/" + plot_type + "_data.npy", "rb")
+            infile = open(data_dir + language + "/" + model + "/" + plot_type + "_data.npy", "rb")
             data[language] = np.load(infile)
             infile.close()
         except OSError:
-            print("no file found for", language)
+            print("no file found for", language, plot_type)
 
     sns.set_palette(sns.color_palette("hsv", len(data.items())))
 
@@ -31,30 +39,36 @@ def plot(plot_type):
         plt.plot(x,y)
         captions.append(language)
 
+    x_label = ""
+    y_label = ""
 
     plt.legend(captions, loc='upper right', fontsize=4)
+
     if plot_type == "generated_types":
-        plt.xlabel("number of tokens in generated")
-        plt.ylabel("number of types in generated")
+        x_label = "number of tokens in generated"
+        y_label = "number of types in generated"
     elif plot_type == "huge_types":
-        plt.xlabel("number of tokens")
-        plt.ylabel("number of types")
-    elif plot_type == "huge_token_token_performance":
-        plt.xlabel("Number of tokens in huge")
-        plt.ylabel("Performance (by tokens)")
-    elif plot_type == "huge_token_type_performance":
-        plt.xlabel("Number of tokens in huge")
-        plt.ylabel("Performance (by types)")
-    elif plot_type == "huge_type_type_performance":
-        plt.xlabel("Number of types in huge")
-        plt.ylabel("Performance (by types)")
-    elif plot_type == "good_freqs":
-        plt.xlabel("Word Frequency")
-        plt.ylabel("Words with this frequency")
-    elif plot_type == "bad_freqs":
-        plt.xlabel("Word Frequency")
-        plt.ylabel("Words with this frequency")
-    plt.savefig("../graphs/" + plot_type + ".pdf")
+        x_label = "number of tokens"
+        y_label = "number of types"
+
+    if re.match(token_x_re, plot_type):
+        x_label = "number of tokens"
+    elif re.match(type_x_re, plot_type):
+        x_label = "number of types"
+
+    if re.match(token_y_re, plot_type):
+        y_label = "sensible word percentage"
+    elif re.match(type_y_re, plot_type):
+        y_label = "new sensible word count"
+
+    if re.match(huge_re, plot_type):
+        x_label += " in huge"
+    elif re.match(gen_re, plot_type):
+        x_label += " in generated"
+
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.savefig("../graphs/" + model + "/" + plot_type + ".pdf")
     plt.clf()
 
 if len(sys.argv) < 2:
@@ -63,7 +77,7 @@ else:
     type_pattern = sys.argv[1]
 
 language_dirs = [data_dir + name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]
-types = set([name[:-len("_data.npy")] for dir in language_dirs for name in os.listdir(dir) if name.endswith("_data.npy")])
+types = set([name[:-len("_data.npy")] for dir in language_dirs for name in os.listdir(dir +  "/" + model) if name.endswith("_data.npy")])
 types_to_plot = [type for type in types if fnmatch.fnmatch(type,type_pattern)]
 print("plotting", types_to_plot)
 
