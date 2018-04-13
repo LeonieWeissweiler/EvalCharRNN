@@ -9,8 +9,8 @@ import sys
 import re
 
 language = sys.argv[1]
+model = sys.argv[2] #rnn, gru, lstm, nas
 
-model = "lstm" #rnn, gru, lstm, nas
 n_generate = "500000"
 sample_mode = "1" #0 to use max at each timestep, 1 to sample at each timestep, 2 to sample on spaces')
 rnn_size = "128"

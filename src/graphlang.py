@@ -7,22 +7,24 @@ import fnmatch
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-import seaborn as sns
+
+model = sys.argv[1]
 
 data_dir = "../data/wikipedia/"
 heap_dir = "../heap/"
-model = "lstm"
 huge_re = re.compile(r"huge")
 gen_re = re.compile(r"gen")
 token_x_re = re.compile(r"(huge|gen)\_token")
-type_y_re = re.compile(r"(huge|gen)\_type")
+type_x_re = re.compile(r"(huge|gen)\_type")
 token_y_re = re.compile(r".*?\_token_performance$")
 type_y_re = re.compile(r".*?\_type_performance$")
 
 def subplot_data(type, models):
     data = {}
     for model in models:
+        print("subplot", model)
         data["generated " + model] = read_npy(language, model, type)
+    return data
 
 def execute_heaps_law(K,beta,end,step):
     def heaps_law(n,K,beta):
@@ -31,10 +33,12 @@ def execute_heaps_law(K,beta,end,step):
     x = []
     y = []
     for i in range(0,end,step):
-        x.append(x)
+        x.append(i)
+        y_value = heaps_law(i,K,beta)
         y.append(heaps_law(i,K,beta))
 
-    return x,y
+    result = [np.array(x), np.array(y)]
+    return result
 
 def read_heap_params(language, model, plot_type):
     path = heap_dir + plot_type + "_" + model + "_heap_data.txt"
@@ -62,18 +66,18 @@ def read_npy(language, model, plot_type):
         #DO SOMETHING
 
 def subplot(ax, data_dict, plot_type):
-
-    sns.set_palette(sns.color_palette("hsv", len(data_dict)))
     captions = []
+    #PROBLEM
     for description, axes in data_dict.items():
         x = axes[0]
         y = axes[1]
+        print(description, len(x), len(y))
         ax.plot(x,y)
+        print(description)
         captions.append(description)
 
     x_label = ""
     y_label = ""
-
     ax.legend(captions, loc='upper right', fontsize=4)
 
     if plot_type == "generated_types":
@@ -98,12 +102,12 @@ def subplot(ax, data_dict, plot_type):
     elif re.match(gen_re, plot_type):
         xlabel += " in generated"
 
-    ax.xlabel(xlabel)
-    ax.ylabel(ylabel)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
 
-def plot(language, models):
+def own_plot(language, models):
     print("Plotting language " + language + " with models", models)
-    f, axarr = plt.subplots(2, 4)
+    f, axarr = plt.subplots(4, 2)
     f.set_size_inches((8.27,11.96))
 
     # upper left: type-token ratios und heaps law
@@ -112,19 +116,18 @@ def plot(language, models):
     data["huge"] = read_npy(language, "" , "huge_types")
     end = data["huge"][0][-1]
     K,beta = read_heap_params(language, "" , "huge_types")
-    data["huge (heaps approximation)"] = execute_heaps_law(K,beta,end,100)
+    data["huge (heaps approximation)"] = execute_heaps_law(K,beta,end,10000)
     for model in models:
         print(model)
         data["generated " + model] = read_npy(language, model, "generated_types")
         K,beta = read_heap_params(language, model, "generated_types")
         data["generated " + model + " (heaps approximation)"] = execute_heaps_law(K,beta,end,100)
     subplot(axarr[0][0], data, "huge_types")
-
     i = 1
     types = ["gen_type_type_performance", "gen_token_token_performance", "gen_token_type_performance", "huge_type_token_performance", "huge_type_type_performance", "huge_token_token_performance", "huge_token_type_performance"]
-    for typ in types: 
+    for typ in types:
         print("Plotting", typ)
-        subplot(axarr[i % 2][i / 2], subplot_data(typ, models), typ)
+        subplot(axarr[(i // 2)][(i % 2)], subplot_data(typ, models), typ)
         i += 1
 
     plt.savefig("../graphs/" + language + "_all_graphs.pdf")
@@ -135,4 +138,4 @@ languages = [name for name in os.listdir(data_dir) if os.path.isdir(os.path.join
 models = ["lstm"]
 
 for language in languages:
-    plot(language, models)
+    own_plot(language, models)

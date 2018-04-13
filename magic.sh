@@ -1,6 +1,6 @@
 #!/bin/bash
 LANG=$1
-CODE=$2
+MODEL=$2
 GPU=$3
 
 # # Position: Bachelorarbeit
@@ -25,5 +25,5 @@ GPU=$3
 # cd ../../..
 
 export CUDA_VISIBLE_DEVICES=$GPU
-python3 src/generate.py $LANG
-python3 src/wordlist.py data/wikipedia/$LANG/rnn/generated
+python3 src/generate.py $LANG $MODEL
+python3 src/wordlist.py data/wikipedia/$LANG/$MODEL/generated

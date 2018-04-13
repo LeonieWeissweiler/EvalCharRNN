@@ -3,7 +3,7 @@ import os
 import collections
 from six.moves import cPickle
 import numpy as np
-import re
+import regex
 
 
 class TextLoader():
@@ -32,12 +32,12 @@ class TextLoader():
     def preprocess(self, input_file, vocab_file, tensor_file):
         with open(input_file, "r", encoding="UTF-8") as f:
             data = f.read()
-        letters = re.compile(r'\W+')
-        numbers = re.compile(r'[0-9]+')
-        spaces = re.compile(r'\s+')
-        data = letters.sub(" ", data)
-        data = numbers.sub(" ", data)
-        data = spaces.sub(" ", data)
+        letters = regex.compile(r'[^\p{L}\p{M}]')
+        numbers = regex.compile(r'[0-9]')
+        spaces = regex.compile(r'\s+')
+        data = regex.sub(letters, " ", data)
+        data = regex.sub(numbers, "0", data)
+        data = regex.sub(spaces, " ", data)
         counter = collections.Counter(data)
         count_pairs = sorted(counter.items(), key=lambda x: -x[1])
         self.chars, _ = zip(*count_pairs)

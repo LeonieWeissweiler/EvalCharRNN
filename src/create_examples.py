@@ -4,8 +4,8 @@ import os
 import sys
 
 data_dir = "../data/wikipedia/"
-languages = ["de", "en"]
-models = ["rnn", "lstm"]
+languages = ["fr", "ko"]
+models = ["lstm"]
 
 def read_wordlist(path):
 	try:
