@@ -4,11 +4,26 @@ import numpy as np
 import re
 import os
 
-model = "lstm"
+model = sys.argv[1]
 data_dir = "../data/wikipedia/"
 letters = re.compile(r'\W+')
 numbers = re.compile(r'[0-9]+')
 spaces = re.compile(r'\s+')
+
+small_dict = {}
+small_file = open(data_dir + "el/huge_wordlist.txt", "r")
+for line in small_file:
+    word, freq = line.split(" ")
+    small_dict[word] = int(freq)
+small_file.close()
+
+small_count_token = np.sum(list(small_dict.values()))
+small_count_type = len(small_dict.values())
+
+print(small_count_token, small_count_type)
+
+cut_token = small_count_token / 100
+cut_type = small_count_type / 100
 
 languages = [ name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]
 
@@ -18,7 +33,7 @@ for language in languages:
         huge_file = open(data_dir + language + "/huge.txt")
 
         if os.stat(data_dir + language + "/" + model + "/generated_wordlist.txt").st_size == 0:
-            print("empty file found for", language)
+            print("empty file found for", data_dir + language + "/" + model + "/generated_wordlist.txt")
             continue
         gen_file = open(data_dir + language + "/" + model + "/generated_wordlist.txt")
         for line in gen_file:
@@ -26,7 +41,8 @@ for language in languages:
             gen_dict[word] = int(freq)
         gen_file.close()
 
-        input_file = open(data_dir + language + "/" + model + "/input_wordlist.txt")
+        input_dict = {}
+        input_file = open(data_dir + language + "/input_wordlist.txt")
         for line in input_file:
             word, freq = line.split(" ")
             input_dict[word] = int(freq)
@@ -81,5 +97,11 @@ for language in languages:
         write(type_x, type_y_for_type_x,"huge_type_type_performance")
         write(type_x, token_y_for_type_x, "huge_type_token_performance")
 
-    except OSError:
-        print("no generated found for", language)
+        write(token_x[:cut_token], token_y_for_token_x[:cut_token],"norm_huge_token_token_performance")
+        write(token_x[:cut_token], type_y_for_token_x[:cut_token],"norm_huge_token_type_performance")
+        write(type_x[:cut_type], type_y_for_type_x[:cut_type],"norm_huge_type_type_performance")
+        write(type_x[:cut_type], token_y_for_type_x[:cut_type], "norm_huge_type_token_performance")
+
+    except OSError as error:
+        print(error)
+        print("no generated found for", data_dir + language + "/" + model + "/generated_wordlist.txt")

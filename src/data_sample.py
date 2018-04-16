@@ -4,7 +4,7 @@ import numpy as np
 import re
 import os
 
-model = "lstm"
+model = sys.argv[1]
 data_dir = "../data/wikipedia/"
 letters = re.compile(r'\W+')
 numbers = re.compile(r'[0-9]+')

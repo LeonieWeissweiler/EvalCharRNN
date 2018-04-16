@@ -111,7 +111,6 @@ def own_plot(language, models):
     f.set_size_inches((8.27,11.96))
 
     # upper left: type-token ratios und heaps law
-    print("Plotting Upper left")
     data = {}
     data["huge"] = read_npy(language, "" , "huge_types")
     end = data["huge"][0][-1]
@@ -124,7 +123,7 @@ def own_plot(language, models):
         data["generated " + model + " (heaps approximation)"] = execute_heaps_law(K,beta,end,100)
     subplot(axarr[0][0], data, "huge_types")
     i = 1
-    types = ["gen_type_type_performance", "gen_token_token_performance", "gen_token_type_performance", "huge_type_token_performance", "huge_type_type_performance", "huge_token_token_performance", "huge_token_type_performance"]
+    types = ["gen_type_type_performance", "gen_token_token_performance", "gen_token_type_performance", "huge_type_token_performance", "huge_token_token_performance", "huge_type_type_performance", "huge_token_type_performance"]
     for typ in types:
         print("Plotting", typ)
         subplot(axarr[(i // 2)][(i % 2)], subplot_data(typ, models), typ)
