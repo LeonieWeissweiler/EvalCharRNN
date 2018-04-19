@@ -1,40 +1,40 @@
 #!/bin/bash
-# bash magic.sh ja rnn 3
-# bash magic.sh nl rnn 3
-# bash magic.sh en rnn &
-# bash magic.sh de rnn &
-# bash magic.sh lv rnn &
-# bash magic.sh hi rnn 3
-# bash magic.sh es rnn 3
-# bash magic.sh it rnn 3
-# bash magic.sh fr rnn 3
-# bash magic.sh ru rnn 3
-# bash magic.sh pl rnn 3
-# bash magic.sh uk rnn 3
-# bash magic.sh pt rnn 3
-# bash magic.sh zh rnn 3
-# bash magic.sh he rnn 3
-# bash magic.sh sv rnn 3
-# bash magic.sh ca rnn 3
-# bash magic.sh hu rnn 3
-# bash magic.sh bg rnn 3
-# bash magic.sh ar rnn 3
-# bash magic.sh cs rnn 3
-# bash magic.sh fi rnn 3
-# bash magic.sh no rnn 3
-# bash magic.sh fa rnn 3
-# bash magic.sh sr rnn 3
-# bash magic.sh vi rnn 3
-# bash magic.sh tr rnn 3
-# bash magic.sh id rnn 3 
-# bash magic.sh ro rnn 3
-# bash magic.sh th rnn 3
-# bash magic.sh da rnn 3
-bash magic.sh hr rnn 3
-bash magic.sh lt rnn 3
-bash magic.sh sk rnn 3
-bash magic.sh sl rnn 3
-bash magic.sh et rnn 3
-bash magic.sh ms rnn 3
-bash magic.sh el rnn 3
-bash magic.sh ko rnn 3
+bash magic.sh ja nas 3
+bash magic.sh nl nas 3
+bash magic.sh en nas &
+bash magic.sh de nas &
+bash magic.sh lv nas &
+bash magic.sh hi nas 3
+bash magic.sh es nas 3
+bash magic.sh it nas 3
+bash magic.sh fr nas 3
+bash magic.sh ru nas 3
+bash magic.sh pl nas 3
+bash magic.sh uk nas 3
+bash magic.sh pt nas 3
+bash magic.sh zh nas 3
+bash magic.sh he nas 3
+bash magic.sh sv nas 3
+bash magic.sh ca nas 3
+bash magic.sh hu nas 3
+bash magic.sh bg nas 3
+bash magic.sh ar nas 3
+bash magic.sh cs nas 3
+bash magic.sh fi nas 3
+bash magic.sh no nas 3
+bash magic.sh fa nas 3
+bash magic.sh sr nas 3
+bash magic.sh vi nas 3
+bash magic.sh tr nas 3
+bash magic.sh id nas 3
+bash magic.sh ro nas 3
+bash magic.sh th nas 3
+bash magic.sh da nas 3
+bash magic.sh hr nas 3
+bash magic.sh lt nas 3
+bash magic.sh sk nas 3
+bash magic.sh sl nas 3
+bash magic.sh et nas 3
+bash magic.sh ms nas 3
+bash magic.sh el nas 3
+bash magic.sh ko nas 3

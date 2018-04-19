@@ -39,7 +39,11 @@ def fit_filetype(filetype, model, languages):
 
 languages = [ name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]
 
-filetype = sys.argv[1]
-model = sys.argv[2]
+models = ["lstm", "rnn", "nas", "gru"]
+language_dirs = [data_dir + name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]
 
-fit_filetype(filetype, model, languages)
+fit_filetype("huge_types", "", language_dirs)
+filetypes = ["gen_token_type_performance", "gen_type_type_performance", "generated_types", "huge_token_type_performance", "huge_type_type_performance"]
+for model in models:
+    for filetype in filetypes:
+        fit_filetype(filetype, model, languages)

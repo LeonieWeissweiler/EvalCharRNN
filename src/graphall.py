@@ -10,7 +10,6 @@ import seaborn as sns
 import re
 
 data_dir = "../data/wikipedia/"
-model = "lstm"
 huge_re = re.compile(r"huge")
 gen_re = re.compile(r"gen")
 token_x_re = re.compile(r"(huge|gen)\_token")
@@ -18,7 +17,8 @@ type_x_re = re.compile(r"(huge|gen)\_type")
 token_y_re = re.compile(r".*?\_token_performance$")
 type_y_re = re.compile(r".*?\_type_performance$")
 
-def plot(plot_type):
+def plot(plot_type, model):
+    print("plotting", plot_type, model)
     language_dirs = [ name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]
     data = {}
     captions = []
@@ -29,7 +29,8 @@ def plot(plot_type):
             data[language] = np.load(infile)
             infile.close()
         except OSError:
-            print("no file found for", language, plot_type)
+            print("no file found for", language, model, plot_type)
+            return
 
     sns.set_palette(sns.color_palette("hsv", len(data.items())))
 
@@ -68,6 +69,8 @@ def plot(plot_type):
 
     plt.xlabel(x_label)
     plt.ylabel(y_label)
+    plt.ylim(ymin=0)
+    plt.xlim(xmin=0)
     plt.savefig("../graphs/" + model + "/" + plot_type + ".pdf")
     plt.clf()
 
@@ -77,9 +80,17 @@ else:
     type_pattern = sys.argv[1]
 
 language_dirs = [data_dir + name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]
-types = set([name[:-len("_data.npy")] for dir in language_dirs for name in os.listdir(dir +  "/" + model) if name.endswith("_data.npy")])
+types = set([name[:-len("_data.npy")] for dir in language_dirs for name in os.listdir(dir +  "/lstm") if (name.endswith("_data.npy"))])
+
+types_without_models = ["huge_types", "gensize_huge_types", "small_huge_types"]
 types_to_plot = [type for type in types if fnmatch.fnmatch(type,type_pattern)]
 print("plotting", types_to_plot)
 
+for type in types_without_models:
+    print(type)
+    plot(type, "")
+
+models = ["lstm", "rnn", "nas", "gru"]
 for type in types_to_plot:
-    plot(type)
+    for model in models:
+        plot(type, model)
