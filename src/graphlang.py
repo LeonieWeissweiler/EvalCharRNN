@@ -7,6 +7,7 @@ import fnmatch
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
 
 data_dir = "../data/wikipedia/"
 heap_dir = "../heap/"
@@ -20,37 +21,8 @@ type_y_re = re.compile(r".*?\_type_performance$")
 def subplot_data(type, models):
     data = {}
     for model in models:
-        data["generated " + model] = read_npy(language, model, type)
+        data[model] = read_npy(language, model, type)
     return data
-
-# def execute_heaps_law(K,beta,end,step):
-#     def heaps_law(n,K,beta):
-#       return K * (n ** beta)
-#
-#     x = []
-#     y = []
-#     for i in range(0,end,step):
-#         x.append(i)
-#         y_value = heaps_law(i,K,beta)
-#         y.append(heaps_law(i,K,beta))
-#
-#     result = [np.array(x), np.array(y)]
-#     return result
-#
-# def read_heap_params(language, model, plot_type):
-#     path = heap_dir + plot_type + "_" + model + "_heap_data.txt"
-#     infile = open(path, "r")
-#     result = {}
-#
-#     for line in infile:
-#         split = line.split(" ")
-#         read_language = split[0]
-#         K = float(split[1][2:])
-#         beta = float(split[2][5:])
-#         if language == read_language:
-#             return (K,beta)
-#
-#     print(language + " not found in " + path)
 
 def read_npy(language, model, plot_type):
     try:
@@ -76,10 +48,7 @@ def subplot(ax, data_dict, plot_type):
     y_label = ""
     ax.legend(captions, loc='upper right', fontsize=4)
 
-    if plot_type == "generated_types":
-        xlabel = "number of tokens in generated"
-        ylabel = "number of types in generated"
-    elif plot_type == "huge_types":
+    if plot_type == "special_token_type_ratio":
         xlabel = "number of tokens"
         ylabel = "number of types"
 
@@ -138,7 +107,7 @@ def own_plot(language, models):
     end = data["huge"][0][-1]
     for model in models:
         data["generated " + model] = read_npy(language, model, "generated_types")
-    subplot(axarr[0][0], data, "huge_types")
+    subplot(axarr[0][0], data, "special_token_type_ratio")
     i = 1
     types = ["gen_type_type_performance", "gen_token_token_performance", "gen_token_type_performance", "huge_type_token_performance", "huge_token_token_performance", "huge_type_type_performance", "huge_token_type_performance"]
     for typ in types:
@@ -147,7 +116,7 @@ def own_plot(language, models):
         i += 1
 
     plt.tight_layout()
-    plt.savefig("../graphs/" + language + "_all_graphs.pdf")
+    plt.savefig("../graphs/languages/" + language + "_all_graphs.pdf")
     plt.clf()
 
 

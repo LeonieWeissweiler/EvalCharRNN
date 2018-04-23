@@ -12,10 +12,17 @@ import re
 data_dir = "../data/wikipedia/"
 huge_re = re.compile(r"huge")
 gen_re = re.compile(r"gen")
-token_x_re = re.compile(r"(huge|gen)\_token")
-type_x_re = re.compile(r"(huge|gen)\_type")
+token_x_re = re.compile(r"(huge|gen|gen_train)\_token")
+type_x_re = re.compile(r"(huge|gen|gen_train)\_type")
 token_y_re = re.compile(r".*?\_token_performance$")
 type_y_re = re.compile(r".*?\_type_performance$")
+train_type_y_re = re.compile(r"gen_train_.*?_type_performance$")
+train_token_y_re = re.compile(r"gen_train_.*?_token_performance$")
+
+fam_green_colours = set(["en", "de", "ru", "fr", "es", "it", "nl", "pl", "pt", "uk", "sv", "ca", "bg", "cs", "no", "fa", "sr", "hi", "ro", "da", "hr", "lt", "sl", "sk", "lv", "el"])
+fam_blue_colours = set(["ja", "hu", "fi", "ko", "tr", "et"])
+fam_red_colours = set(["zh", "vi", "in", "th", "ms"])
+fam_black_colours = set(["he", "ar"])
 
 def plot(plot_type, model):
     print("plotting", plot_type, model)
@@ -57,7 +64,71 @@ def plot(plot_type, model):
     elif re.match(type_x_re, plot_type):
         x_label = "number of types"
 
-    if re.match(token_y_re, plot_type):
+    if re.match(train_token_y_re, plot_type):
+        y_label = "train word percentage (token)"
+    elif re.match(train_type_y_re, plot_type):
+        y_label = "train word percentage (ype)"
+    elif re.match(token_y_re, plot_type):
+        y_label = "sensible word percentage"
+    elif re.match(type_y_re, plot_type):
+        y_label = "new sensible word count"
+
+    if re.match(huge_re, plot_type):
+        x_label += " in huge"
+    elif re.match(gen_re, plot_type):
+        x_label += " in generated"
+
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.ylim(ymin=0)
+    plt.xlim(xmin=0)
+    plt.savefig("../graphs/" + model + "/" + plot_type + ".pdf")
+    plt.clf()
+
+def special_plot(plot_type, model):
+    print("plotting", plot_type, model)
+    language_dirs = [ name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]
+    data = {}
+    captions = []
+
+    for language in language_dirs:
+        try:
+            infile = open(data_dir + language + "/" + model + "/" + plot_type + "_data.npy", "rb")
+            data[language] = np.load(infile)
+            infile.close()
+        except OSError:
+            print("no file found for", language, model, plot_type)
+            return
+
+
+    for language, axes in data.items():
+        x = axes[0]
+        y = axes[1]
+        plt.plot(x,y)
+        captions.append(language)
+
+    x_label = ""
+    y_label = ""
+
+    plt.legend(captions, loc='upper right', fontsize=4)
+
+    if plot_type == "generated_types":
+        x_label = "number of tokens in generated"
+        y_label = "number of types in generated"
+    elif plot_type == "huge_types":
+        x_label = "number of tokens"
+        y_label = "number of types"
+
+    if re.match(token_x_re, plot_type):
+        x_label = "number of tokens"
+    elif re.match(type_x_re, plot_type):
+        x_label = "number of types"
+
+    if re.match(train_token_y_re, plot_type):
+        y_label = "train word percentage (token)"
+    elif re.match(train_type_y_re, plot_type):
+        y_label = "train word percentage (ype)"
+    elif re.match(token_y_re, plot_type):
         y_label = "sensible word percentage"
     elif re.match(type_y_re, plot_type):
         y_label = "new sensible word count"
@@ -94,3 +165,6 @@ models = ["lstm", "rnn", "nas", "gru"]
 for type in types_to_plot:
     for model in models:
         plot(type, model)
+        special_plot(type, model)
+
+#{'marker': None, 'dash': (None,None)}

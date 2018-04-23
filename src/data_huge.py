@@ -9,15 +9,8 @@ letters = re.compile(r'\W+')
 numbers = re.compile(r'[0-9]+')
 spaces = re.compile(r'\s+')
 
-small_dict = {}
-small_file = open(data_dir + "el/huge_wordlist.txt", "r")
-for line in small_file:
-    word, freq = line.split(" ")
-    small_dict[word] = int(freq)
-small_file.close()
-
-small_count_token = np.sum(list(small_dict.values()))
-small_count_type = len(small_dict.values())
+small_count_token = 10000000
+small_count_type = 500000
 
 cut_token = small_count_token // 100
 cut_type = small_count_type // 100
@@ -26,6 +19,7 @@ languages = [ name for name in os.listdir(data_dir) if os.path.isdir(os.path.joi
 
 def plot(model):
     for language in languages:
+        print(language)
         try:
             gen_dict = {}
             huge_file = open(data_dir + language + "/huge.txt")

@@ -46,15 +46,9 @@ def plot(filetype, model):
             outfile.close()
 
             if filetype == "huge":
-                gen_wordlist_dict = {}
-                gen_wordlist_file = open(data_dir + language + "/lstm/generated_wordlist.txt", "r")
-                for line in gen_wordlist_file:
-                    word, freq = line.split(" ")
-                    gen_wordlist_dict[word] = int(freq)
-                gen_wordlist_file.close()
-                gen_words_total = np.sum(list(gen_wordlist_dict.values()))
+                gen_words_min = 21000
 
-                words_cut = gen_words_total // 100
+                words_cut = gen_words_min // 100
                 gensize_size_data = size_data[:words_cut]
                 gensize_list_data = list_data[:words_cut]
                 gensize_outlist = np.array([np.array(gensize_size_data), np.array(gensize_list_data)])
@@ -62,14 +56,7 @@ def plot(filetype, model):
                 np.save(gensize_outfile, gensize_outlist)
                 gensize_outfile.close()
 
-                small_dict = {}
-                small_file = open(data_dir + "el/huge_wordlist.txt", "r")
-                for line in small_file:
-                    word, freq = line.split(" ")
-                    small_dict[word] = int(freq)
-                small_file.close()
-
-                small_count_token = np.sum(list(small_dict.values()))
+                small_count_token = 10000000
                 cut_token = small_count_token // 100
 
                 small_size_data = size_data[:cut_token]
