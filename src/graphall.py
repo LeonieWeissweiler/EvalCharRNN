@@ -24,6 +24,13 @@ fam_blue_colours = set(["ja", "hu", "fi", "ko", "tr", "et"])
 fam_red_colours = set(["zh", "vi", "in", "th", "ms"])
 fam_black_colours = set(["he", "ar"])
 
+script_green_colours = set(["en", "de", "fr", "es", "it", "nl", "pl", "pt", "sv", "ca", "hu", "cs", "fi", "no", "vi", "tr", "id", "ro", "da", "hr", "lt", "sl", "sk", "et", "lv", "ms"])
+script_blue_colours = set(["ru", "uk", "bg", "sr"])
+script_red_colours = set(["ar", "fa"])
+
+colours = ["r", "g", "b", "k", "c", "m", "y"]
+own_dashes = [(None, None), [2,2], [1,1], [3,3], [3,1,1,1], [2,1,1,1,1,1]] #[5,2], [10,3], [6,3,2,3], [5,2,5,2,2,2], [5,3,1,3,1,3], [10,5,5,5], [3,2,1,2]]
+
 def plot(plot_type, model):
     print("plotting", plot_type, model)
     language_dirs = [ name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]
@@ -39,13 +46,15 @@ def plot(plot_type, model):
             print("no file found for", language, model, plot_type)
             return
 
-    sns.set_palette(sns.color_palette("hsv", len(data.items())))
-
+    i = 0
     for language, axes in data.items():
         x = axes[0]
         y = axes[1]
-        plt.plot(x,y)
+        colour = colours[i//6]
+        dash = own_dashes[i%6]
+        plt.plot(x,y, color=colour, dashes=dash)
         captions.append(language)
+        i += 1
 
     x_label = ""
     y_label = ""
@@ -85,7 +94,7 @@ def plot(plot_type, model):
     plt.savefig("../graphs/" + model + "/" + plot_type + ".pdf")
     plt.clf()
 
-def special_plot(plot_type, model):
+def special_plot(plot_type, model, special_type):
     print("plotting", plot_type, model)
     language_dirs = [ name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]
     data = {}
@@ -100,11 +109,27 @@ def special_plot(plot_type, model):
             print("no file found for", language, model, plot_type)
             return
 
-
     for language, axes in data.items():
         x = axes[0]
         y = axes[1]
-        plt.plot(x,y)
+        if special_type == "families":
+            if language in fam_green_colours:
+                plt.plot(x, y, "g")
+            elif language in fam_red_colours:
+                plt.plot(x, y, "r")
+            elif language in fam_blue_colours:
+                plt.plot(x, y, "b")
+            elif language in fam_black_colours:
+                plt.plot(x, y, "k")
+        else:
+            if language in script_green_colours:
+                plt.plot(x, y, "g")
+            elif language in script_red_colours:
+                plt.plot(x, y, "r")
+            elif language in script_blue_colours:
+                plt.plot(x, y, "b")
+            else:
+                plt.plot(x, y, "k")
         captions.append(language)
 
     x_label = ""
@@ -142,7 +167,7 @@ def special_plot(plot_type, model):
     plt.ylabel(y_label)
     plt.ylim(ymin=0)
     plt.xlim(xmin=0)
-    plt.savefig("../graphs/" + model + "/" + plot_type + ".pdf")
+    plt.savefig("../graphs/" + model + "/" + special_type + "/" + plot_type + ".pdf")
     plt.clf()
 
 if len(sys.argv) < 2:
@@ -162,9 +187,11 @@ for type in types_without_models:
     plot(type, "")
 
 models = ["lstm", "rnn", "nas", "gru"]
+special_types = ["families", "scripts"]
 for type in types_to_plot:
     for model in models:
         plot(type, model)
-        special_plot(type, model)
+        for special_type in special_types:
+            special_plot(type, model, special_type)
 
 #{'marker': None, 'dash': (None,None)}
