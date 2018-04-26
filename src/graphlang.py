@@ -13,8 +13,8 @@ data_dir = "../data/wikipedia/"
 heap_dir = "../heap/"
 huge_re = re.compile(r"huge")
 gen_re = re.compile(r"gen")
-token_x_re = re.compile(r"(huge|gen)\_token")
-type_x_re = re.compile(r"(huge|gen)\_type")
+token_x_re = re.compile(r"(huge|gen|gen_train)\_token")
+type_x_re = re.compile(r"(huge|gen|gen_train)\_type")
 token_y_re = re.compile(r".*?\_token_performance$")
 type_y_re = re.compile(r".*?\_type_performance$")
 train_type_y_re = re.compile(r"gen_train_.*?_type_performance$")
@@ -65,7 +65,7 @@ def subplot(ax, data_dict, plot_type):
     if re.match(train_token_y_re, plot_type):
         y_label = "train word percentage (token)"
     elif re.match(train_type_y_re, plot_type):
-        y_label = "train word percentage (ype)"
+        y_label = "train word count (type)"
     elif re.match(token_y_re, plot_type):
         y_label = "sensible word percentage"
     elif re.match(type_y_re, plot_type):
@@ -112,10 +112,24 @@ def own_plot(language, models):
 
         # upper left: type-token ratios und heaps law
         data = {}
-        data["huge"] = read_npy(language, "" , "gensize_huge_types")
-        end = data["huge"][0][-1]
+        data["huge"] = read_npy(language, "" , "huge_types")
+        largest_gen_tokens = 0
         for model in models:
             data["generated " + model] = read_npy(language, model, "generated_types")
+            try:
+                length = len(data["generated " + model][0])
+            except:
+                length = 0
+            if length > largest_gen_tokens:
+                print(length)
+                largest_gen_tokens = length
+
+        print(largest_gen_tokens)
+
+        # data["huge"][0] = data["huge"][0][:largest_gen_tokens]
+        # data["huge"][1] = data["huge"][1][:largest_gen_tokens]
+        data["huge"] = data["huge"][:,:largest_gen_tokens]
+
         subplot(axarr[0][0], data, "special_token_type_ratio")
         i = 1
         types = ["gen_type_type_performance", "gen_token_token_performance", "gen_token_type_performance", "huge_type_token_performance", "huge_token_token_performance", "huge_type_type_performance", "huge_token_type_performance"]
@@ -147,7 +161,7 @@ def own_plot(language, models):
         # axarr[3][1] = plt.subplot(4,2,8,sharex=axarr[2][1], sharey=axarr[3][0])
 
         i = 0
-        types = ["gen_train_type_type_performance", "gen_train_token_token_performance", "gen_train_token_type_performance"]
+        types = ["gen_train_token_token_performance", "gen_train_type_type_performance", "gen_train_token_type_performance"]
         for type in types:
             subplot(axarr[(i // 2)][(i % 2)], subplot_data(type, models), type)
             i += 1

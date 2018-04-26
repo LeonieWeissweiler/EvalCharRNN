@@ -21,7 +21,7 @@ train_token_y_re = re.compile(r"gen_train_.*?_token_performance$")
 
 fam_green_colours = set(["en", "de", "ru", "fr", "es", "it", "nl", "pl", "pt", "uk", "sv", "ca", "bg", "cs", "no", "fa", "sr", "hi", "ro", "da", "hr", "lt", "sl", "sk", "lv", "el"])
 fam_blue_colours = set(["ja", "hu", "fi", "ko", "tr", "et"])
-fam_red_colours = set(["zh", "vi", "in", "th", "ms"])
+fam_red_colours = set(["zh", "vi", "id", "th", "ms"])
 fam_black_colours = set(["he", "ar"])
 
 script_green_colours = set(["en", "de", "fr", "es", "it", "nl", "pl", "pt", "sv", "ca", "hu", "cs", "fi", "no", "vi", "tr", "id", "ro", "da", "hr", "lt", "sl", "sk", "et", "lv", "ms"])
@@ -121,6 +121,8 @@ def special_plot(plot_type, model, special_type):
                 plt.plot(x, y, "b")
             elif language in fam_black_colours:
                 plt.plot(x, y, "k")
+            else:
+                print("fail" + language)
         else:
             if language in script_green_colours:
                 plt.plot(x, y, "g")
