@@ -1,0 +1,239 @@
+nas en 1m 50 0 token 0.6340 type 1515
+nas en 1m 50 1 token 0.6103 type 1535
+nas en 1m 50 2 token 0.6369 type 1533
+nas en 1m 100 0 token 0.7903 type 1292
+nas en 1m 100 1 token 0.7723 type 1424
+nas en 1m 100 2 token 0.7922 type 1297
+nas en 1m 300 0 token 0.9146 type 758
+nas en 1m 300 1 token 0.9161 type 839
+nas en 1m 300 2 token 0.9179 type 823
+
+nas en 5m 50 0 token 0.7022 type 899
+nas en 5m 50 1 token 0.7185 type 875
+nas en 5m 50 2 token 0.7255 type 913
+nas en 5m 100 0 token 0.8550 type 628
+nas en 5m 100 1 token 0.8512 type 690
+nas en 5m 100 2 token 0.8556 type 587
+nas en 5m 300 0 token 0.9462 type 337
+nas en 5m 300 1 token 0.9427 type 324
+nas en 5m 300 2 token 0.9446 type 326
+
+nas en full 50 0 token 0.7830 type 0
+nas en full 50 1 token 0.7902 type 0
+nas en full 50 2 token 0.7906 type 0
+nas en full 100 0 token 0.8924 type 0
+nas en full 100 1 token 0.8880 type 0
+nas en full 100 2 token 0.8939 type 0
+nas en full 300 0 token 0.9493 type 0
+nas en full 300 1 token 0.9469 type 0
+empty file found for ../data/mwc/en/full/2/300/nas//generated_wordlist.txt
+
+nas fi 1m 50 0 token 0.3645 type 1548
+nas fi 1m 50 1 token 0.3470 type 1490
+nas fi 1m 50 2 token 0.3699 type 1695
+nas fi 1m 100 0 token 0.5471 type 2181
+nas fi 1m 100 1 token 0.5580 type 2124
+nas fi 1m 100 2 token 0.5450 type 2038
+nas fi 1m 300 0 token 0.7610 type 2189
+nas fi 1m 300 1 token 0.7515 type 2170
+nas fi 1m 300 2 token 0.7602 type 2215
+
+nas fi 5m 50 0 token 0.5112 type 858
+nas fi 5m 50 1 token 0.5025 type 817
+nas fi 5m 50 2 token 0.5078 type 854
+nas fi 5m 100 0 token 0.6617 type 983
+nas fi 5m 100 1 token 0.6716 type 1044
+nas fi 5m 100 2 token 0.6850 type 1007
+nas fi 5m 300 0 token 0.8148 type 991
+nas fi 5m 300 1 token 0.8131 type 994
+nas fi 5m 300 2 token 0.8174 type 1004
+
+nas fi full 50 0 token 0.5555 type 0
+nas fi full 50 1 token 0.5322 type 0
+nas fi full 50 2 token 0.5418 type 0
+nas fi full 100 0 token 0.7008 type 0
+nas fi full 100 1 token 0.6956 type 0
+nas fi full 100 2 token 0.6976 type 0
+nas fi full 300 0 token 0.8291 type 0
+nas fi full 300 1 token 0.8333 type 0
+nas fi full 300 2 token 0.8222 type 0
+
+gru en 1m 50 0 token 0.6807 type 1433
+gru en 1m 50 1 token 0.6616 type 1387
+gru en 1m 50 2 token 0.6740 type 1389
+gru en 1m 100 0 token 0.8156 type 877
+gru en 1m 100 1 token 0.8108 type 1103
+gru en 1m 100 2 token 0.8183 type 1113
+gru en 1m 300 0 token 0.0060 type 6
+gru en 1m 300 1 token 0.8745 type 949
+gru en 1m 300 2 token 0.8934 type 891
+
+gru en 5m 50 0 token 0.6855 type 812
+gru en 5m 50 1 token 0.6961 type 815
+gru en 5m 50 2 token 0.6860 type 843
+gru en 5m 100 0 token 0.8335 type 570
+gru en 5m 100 1 token 0.8286 type 653
+gru en 5m 100 2 token 0.8278 type 672
+gru en 5m 300 0 token 0.9218 type 419
+gru en 5m 300 1 token 0.9198 type 445
+gru en 5m 300 2 token 0.9178 type 445
+
+gru en full 50 0 token 0.6948 type 0
+gru en full 50 1 token 0.7055 type 0
+gru en full 50 2 token 0.7101 type 0
+gru en full 100 0 token 0.8483 type 0
+gru en full 100 1 token 0.8482 type 0
+gru en full 100 2 token 0.8428 type 0
+gru en full 300 0 token 0.8076 type 0
+gru en full 300 1 token 0.8236 type 0
+gru en full 300 2 token 0.8288 type 0
+
+gru fi 1m 50 0 token 0.4037 type 1569
+gru fi 1m 50 1 token 0.4108 type 1671
+gru fi 1m 50 2 token 0.3957 type 1590
+gru fi 1m 100 0 token 0.5942 type 2102
+gru fi 1m 100 1 token 0.6014 type 2012
+gru fi 1m 100 2 token 0.6070 type 2070
+gru fi 1m 300 0 token 0.7363 type 2055
+gru fi 1m 300 1 token 0.7448 type 1945
+gru fi 1m 300 2 token 0.7352 type 2051
+
+gru fi 5m 50 0 token 0.4465 type 788
+gru fi 5m 50 1 token 0.4397 type 780
+gru fi 5m 50 2 token 0.4487 type 770
+gru fi 5m 100 0 token 0.6322 type 893
+gru fi 5m 100 1 token 0.6251 type 904
+gru fi 5m 100 2 token 0.6307 type 948
+gru fi 5m 300 0 token 0.7876 type 1066
+gru fi 5m 300 1 token 0.0 type 0
+gru fi 5m 300 2 token 0.7879 type 1083
+
+gru fi full 50 0 token 0.4714 type 0
+gru fi full 50 1 token 0.4587 type 0
+gru fi full 50 2 token 0.4567 type 0
+gru fi full 100 0 token 0.6324 type 0
+gru fi full 100 1 token 0.6419 type 0
+gru fi full 100 2 token 0.6409 type 0
+empty file found for ../data/mwc/fi/full/0/300/gru//generated_wordlist.txt
+gru fi full 300 1 token 0.4643 type 0
+gru fi full 300 2 token 0.7259 type 0
+
+rnn en 1m 50 0 token 0.5744 type 1458
+rnn en 1m 50 1 token 0.5837 type 1488
+rnn en 1m 50 2 token 0.5737 type 1481
+rnn en 1m 100 0 token 0.7394 type 1333
+rnn en 1m 100 1 token 0.7305 type 1386
+rnn en 1m 100 2 token 0.7371 type 1307
+rnn en 1m 300 0 token 0.8656 type 934
+rnn en 1m 300 1 token 0.8619 type 1026
+rnn en 1m 300 2 token 0.8589 type 1058
+
+rnn en 5m 50 0 token 0.5675 type 864
+rnn en 5m 50 1 token 0.5697 type 972
+rnn en 5m 50 2 token 0.5583 type 923
+rnn en 5m 100 0 token 0.7380 type 774
+rnn en 5m 100 1 token 0.7447 type 819
+rnn en 5m 100 2 token 0.7365 type 789
+rnn en 5m 300 0 token 0.8948 type 512
+rnn en 5m 300 1 token 0.8966 type 523
+rnn en 5m 300 2 token 0.8983 type 539
+
+rnn en full 50 0 token 0.5823 type 0
+rnn en full 50 1 token 0.5798 type 0
+rnn en full 50 2 token 0.5845 type 0
+rnn en full 100 0 token 0.7525 type 0
+rnn en full 100 1 token 0.7503 type 0
+rnn en full 100 2 token 0.7557 type 0
+rnn en full 300 0 token 0.7307 type 0
+rnn en full 300 1 token 0.7123 type 0
+rnn en full 300 2 token 0.7507 type 0
+
+rnn fi 1m 50 0 token 0.3010 type 1392
+rnn fi 1m 50 1 token 0.2875 type 1276
+rnn fi 1m 50 2 token 0.2969 type 1306
+rnn fi 1m 100 0 token 0.4786 type 1829
+rnn fi 1m 100 1 token 0.4800 type 1765
+rnn fi 1m 100 2 token 0.4829 type 1734
+rnn fi 1m 300 0 token 0.6956 type 1973
+rnn fi 1m 300 1 token 0.6892 type 2007
+rnn fi 1m 300 2 token 0.6963 type 2019
+
+rnn fi 5m 50 0 token 0.3213 type 689
+rnn fi 5m 50 1 token 0.3269 type 670
+rnn fi 5m 50 2 token 0.3204 type 692
+rnn fi 5m 100 0 token 0.5000 type 789
+rnn fi 5m 100 1 token 0.4965 type 780
+rnn fi 5m 100 2 token 0.5023 type 834
+rnn fi 5m 300 0 token 0.7245 type 1051
+rnn fi 5m 300 1 token 0.7332 type 1003
+rnn fi 5m 300 2 token 0.7198 type 1041
+
+rnn fi full 50 0 token 0.3389 type 0
+rnn fi full 50 1 token 0.3349 type 0
+rnn fi full 50 2 token 0.3270 type 0
+rnn fi full 100 0 token 0.5097 type 0
+rnn fi full 100 1 token 0.4991 type 0
+rnn fi full 100 2 token 0.5092 type 0
+rnn fi full 300 0 token 0.5302 type 0
+rnn fi full 300 1 token 0.5772 type 0
+rnn fi full 300 2 token 0.5803 type 0
+
+lstm en 1m 50 0 token 0.5547 type 1666
+lstm en 1m 50 1 token 0.5310 type 1566
+lstm en 1m 50 2 token 0.5549 type 1745
+lstm en 1m 100 0 token 0.6706 type 1608
+lstm en 1m 100 1 token 0.6801 type 1547
+lstm en 1m 100 2 token 0.6719 type 1572
+lstm en 1m 300 0 token 0.8816 type 889
+lstm en 1m 300 1 token 0.8874 type 891
+lstm en 1m 300 2 token 0.8886 type 934
+
+lstm en 5m 50 0 token 0.6379 type 935
+lstm en 5m 50 1 token 0.6326 type 986
+lstm en 5m 50 2 token 0.6385 type 924
+lstm en 5m 100 0 token 0.7335 type 911
+lstm en 5m 100 1 token 0.7479 type 897
+lstm en 5m 100 2 token 0.7339 type 884
+lstm en 5m 300 0 token 0.9001 type 539
+lstm en 5m 300 1 token 0.8947 type 554
+lstm en 5m 300 2 token 0.9003 type 513
+
+lstm en full 50 0 token 0.7027 type 0
+lstm en full 50 1 token 0.7207 type 0
+lstm en full 50 2 token 0.7225 type 0
+lstm en full 100 0 token 0.7673 type 0
+lstm en full 100 1 token 0.7829 type 0
+lstm en full 100 2 token 0.7810 type 0
+lstm en full 300 0 token 0.9179 type 0
+lstm en full 300 1 token 0.9337 type 0
+lstm en full 300 2 token 0.9284 type 0
+
+lstm fi 1m 50 0 token 0.3561 type 1640
+lstm fi 1m 50 1 token 0.3540 type 1565
+lstm fi 1m 50 2 token 0.3234 type 1462
+lstm fi 1m 100 0 token 0.3981 type 1814
+lstm fi 1m 100 1 token 0.4373 type 1878
+lstm fi 1m 100 2 token 0.4078 type 1803
+lstm fi 1m 300 0 token 0.6803 type 2435
+lstm fi 1m 300 1 token 0.6708 type 2382
+lstm fi 1m 300 2 token 0.6733 type 2287
+
+lstm fi 5m 50 0 token 0.4213 type 744
+lstm fi 5m 50 1 token 0.4388 type 795
+lstm fi 5m 50 2 token 0.4374 type 788
+lstm fi 5m 100 0 token 0.5084 type 890
+lstm fi 5m 100 1 token 0.5195 type 851
+lstm fi 5m 100 2 token 0.5036 type 889
+lstm fi 5m 300 0 token 0.7121 type 801
+lstm fi 5m 300 1 token 0.7412 type 1008
+lstm fi 5m 300 2 token 0.7298 type 860
+
+lstm fi full 50 0 token 0.4850 type 0
+lstm fi full 50 1 token 0.4466 type 0
+lstm fi full 50 2 token 0.4601 type 0
+lstm fi full 100 0 token 0.5574 type 0
+lstm fi full 100 1 token 0.5226 type 0
+lstm fi full 100 2 token 0.5258 type 0
+lstm fi full 300 0 token 0.7987 type 0
+lstm fi full 300 1 token 0.7904 type 0
+lstm fi full 300 2 token 0.7515 type 0

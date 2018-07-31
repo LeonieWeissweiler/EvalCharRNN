@@ -37,7 +37,8 @@ def fit_filetype(filetype, model, languages):
     outfile.close()
 
 
-languages = [ name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]
+# languages = [ name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]
+languages = ["ar", "he"]
 
 models = ["lstm", "rnn", "nas", "gru"]
 language_dirs = [data_dir + name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]

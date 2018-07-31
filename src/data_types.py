@@ -2,12 +2,12 @@
 import sys
 import numpy as np
 import os
-import re
+import regex
 
 data_dir = "../data/wikipedia/"
-letters = re.compile(r'\W+')
-numbers = re.compile(r'[0-9]+')
-spaces = re.compile(r'\s+')
+letters = regex.compile(r'[^\p{L}\p{M}]')
+numbers = regex.compile(r'[0-9]+')
+spaces = regex.compile(r'\s+')
 
 def plot(filetype, model):
     languages = [ name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name)) ]
@@ -24,9 +24,9 @@ def plot(filetype, model):
             infile = open(data_dir + language + "/" + model + "/" + filetype + ".txt")
             for line in infile:
                 line = line.strip()
-                line = letters.sub(" ", line)
-                line = numbers.sub(" ", line)
-                line = spaces.sub(" ", line)
+                line = regex.sub(letters, " ", line)
+                line = regex.sub(numbers, "0", line)
+                line = regex.sub(spaces, " ", line)
                 for word in line.split(" "):
                     if word not in cdict:
                         cdict[word] = 1

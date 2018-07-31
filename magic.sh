@@ -2,14 +2,15 @@
 LANG=$1
 MODEL=$2
 GPU=$3
+CODE=$4
 
-# # Position: Bachelorarbeit
+# Position: Bachelorarbeit
 # python src/google_drive_download.py $CODE data/wikipedia/$LANG.tar.lzma
 #
 # # Position: Bacheloararbeit/data/wikipedia
 # cd data/wikipedia
 #
-# tar --lzma -xf $LANG.tar.lzma
+# tar --lzma -xvf $LANG.tar.lzma
 #
 # # Position: Bachelorarbeit/data/wikipedia/$LANG
 # cd $LANG
@@ -17,11 +18,12 @@ GPU=$3
 # mv full.txt huge.txt
 #
 # export PYTHONIOENCODING=utf8
+# python3 ../../../src/tokenise.py $LANG huge.txt
 # python3 ../../../src/gen_data.py 5000000
-# python3 ../../../src/wordlist.py full
+# python3 ../../../src/wordlist.py huge
 # python3 ../../../src/wordlist.py input
-#
-# # Position: Bachelorarbeit
+
+# Position: Bachelorarbeit
 # cd ../../..
 
 export CUDA_VISIBLE_DEVICES=$GPU

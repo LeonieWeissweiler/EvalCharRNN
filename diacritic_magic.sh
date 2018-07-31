@@ -1,6 +1,4 @@
-bash magic.sh da lstm 3
-bash magic.sh el lstm 3
-bash magic.sh et lstm 3
-bash magic.sh hr lstm 3
-bash magic.sh ko lstm 3
-bash magic.sh sk lstm 3
+bash magic.sh ar lstm 3 0B5lWReQPSvmGVXJrODBDSHhDSVE
+bash magic.sh ar rnn 3 0B5lWReQPSvmGVXJrODBDSHhDSVE
+bash magic.sh ar nas 3 0B5lWReQPSvmGVXJrODBDSHhDSVE
+bash magic.sh ar gru 3 0B5lWReQPSvmGVXJrODBDSHhDSVE

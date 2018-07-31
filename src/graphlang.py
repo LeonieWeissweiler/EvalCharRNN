@@ -35,6 +35,18 @@ def read_npy(language, model, plot_type):
     except OSError:
         print("no file found for", language, model, plot_type)
 
+def format_string_for_description(description):
+    if description == "rnn":
+        return "k-"
+    elif description == "lstm":
+        return "k--"
+    elif description == "gru":
+        return "k-."
+    elif description == "nas":
+        return "k:"
+
+    return "#666666"
+
 def subplot(ax, data_dict, plot_type):
     captions = []
 
@@ -43,7 +55,7 @@ def subplot(ax, data_dict, plot_type):
             continue
         x = axes[0]
         y = axes[1]
-        ax.plot(x,y)
+        ax.plot(x,y,format_string_for_description(description))
         captions.append(description)
 
     x_label = ""
@@ -68,6 +80,7 @@ def subplot(ax, data_dict, plot_type):
         y_label = "train word count (type)"
     elif re.match(token_y_re, plot_type):
         y_label = "sensible word percentage"
+        ax.set_ylim(ymax=1)
     elif re.match(type_y_re, plot_type):
         y_label = "new sensible word count"
 
@@ -115,19 +128,12 @@ def own_plot(language, models):
         data["huge"] = read_npy(language, "" , "huge_types")
         largest_gen_tokens = 0
         for model in models:
-            data["generated " + model] = read_npy(language, model, "generated_types")
-            try:
-                length = len(data["generated " + model][0])
-            except:
-                length = 0
+            data[model] = read_npy(language, model, "generated_types")
+            length = len(data[model][0])
             if length > largest_gen_tokens:
                 print(length)
                 largest_gen_tokens = length
 
-        print(largest_gen_tokens)
-
-        # data["huge"][0] = data["huge"][0][:largest_gen_tokens]
-        # data["huge"][1] = data["huge"][1][:largest_gen_tokens]
         data["huge"] = data["huge"][:,:largest_gen_tokens]
 
         subplot(axarr[0][0], data, "special_token_type_ratio")
@@ -142,33 +148,33 @@ def own_plot(language, models):
         pdf.savefig()
         plt.clf()
 
-        print("Plotting language " + language + " with models", models)
-        plt.figure(figsize=((8.27,11.96)))
-
-        # Create full subplot array
-        axarr = [
-            [
-                plt.subplot(4,2,1),
-                plt.subplot(4,2,2)
-            ],
-            [
-                plt.subplot(4,2,3),
-            ],
-        ]
-        # Replace single subplot objects to add axis sharing links
-        # axarr[2][1] = plt.subplot(4,2,6,sharey=axarr[2][0])
-        # axarr[3][0] = plt.subplot(4,2,7,sharex=axarr[2][0])
-        # axarr[3][1] = plt.subplot(4,2,8,sharex=axarr[2][1], sharey=axarr[3][0])
-
-        i = 0
-        types = ["gen_train_token_token_performance", "gen_train_type_type_performance", "gen_train_token_type_performance"]
-        for type in types:
-            subplot(axarr[(i // 2)][(i % 2)], subplot_data(type, models), type)
-            i += 1
-
-        plt.tight_layout()
-        pdf.savefig()
-        plt.clf()
+#         print("Plotting language " + language + " with models", models)
+#         plt.figure(figsize=((8.27,11.96)))
+# 
+#         # Create full subplot array
+#         axarr = [
+#             [
+#                 plt.subplot(4,2,1),
+#                 plt.subplot(4,2,2)
+#             ],
+#             [
+#                 plt.subplot(4,2,3),
+#             ],
+#         ]
+#         # Replace single subplot objects to add axis sharing links
+#         # axarr[2][1] = plt.subplot(4,2,6,sharey=axarr[2][0])
+#         # axarr[3][0] = plt.subplot(4,2,7,sharex=axarr[2][0])
+#         # axarr[3][1] = plt.subplot(4,2,8,sharex=axarr[2][1], sharey=axarr[3][0])
+# 
+#         i = 0
+#         types = ["gen_train_token_token_performance", "gen_train_type_type_performance", "gen_train_token_type_performance"]
+#         for type in types:
+#             subplot(axarr[(i // 2)][(i % 2)], subplot_data(type, models), type)
+#             i += 1
+# 
+#         plt.tight_layout()
+#         pdf.savefig()
+#         plt.clf()
 
 
 languages = [name for name in os.listdir(data_dir) if os.path.isdir(os.path.join(data_dir, name))]

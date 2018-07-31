@@ -1,19 +1,23 @@
 #!/usr/bin/python3
 from polyglot.text import Text
 import os
+import re
+import sys
 
-dir = "../data/examples/"
-files = os.listdir(dir)
+language = sys.argv[1]
+type = sys.argv[2]
 
-for file in files:
-    handle = open(dir + file)
-    string = handle.read()
-    handle.close()
+handle = open(type, encoding="UTF-8")
+input_string = handle.read()
+handle.close()
 
-    text = Text(string)
-    print(file, text.language)
-    tokenised = text.words
+re_pattern = re.compile(u'[^\u0000-\uD7FF\uE000-\uFFFF]', re.UNICODE)
+filtered_string = re_pattern.sub(u'\uFFFD', input_string)
 
-    outfile = open(dir + "tokenised_" + file, "w")
-    outfile.write(" ".join(tokenised))
-    outfile.close()
+text = Text(filtered_string, hint_language_code=language)
+print(language, text.language)
+tokenised = text.words
+
+outlanguage = open(language + type, "w", encoding="UTF-8")
+outlanguage.write(" ".join(tokenised))
+outlanguage.close()
