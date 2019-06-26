@@ -1,0 +1,244 @@
+nas en 1m 50 0 token 63.40 type 05.22
+nas en 1m 50 1 token 61.03 type 04.99
+nas en 1m 50 2 token 63.69 type 05.29
+nas en 1m 100 0 token 79.03 type 07.19
+nas en 1m 100 1 token 77.23 type 07.32
+nas en 1m 100 2 token 79.22 type 07.24
+---------BEST TYPE PERFORMANCE EN ------------
+nas en 1m 300 0 token 91.46 type 09.78
+nas en 1m 300 1 token 91.61 type 10.85
+nas en 1m 300 2 token 91.79 type 10.91
+----------------------------------------------
+nas en 5m 50 0 token 70.22 type 03.85
+nas en 5m 50 1 token 71.85 type 03.94
+nas en 5m 50 2 token 72.55 type 04.19
+nas en 5m 100 0 token 85.50 type 05.16
+nas en 5m 100 1 token 85.12 type 05.49
+nas en 5m 100 2 token 85.56 type 04.86
+nas en 5m 300 0 token 94.62 type 07.21
+nas en 5m 300 1 token 94.27 type 06.54
+nas en 5m 300 2 token 94.46 type 06.74
+
+nas en full 50 0 token 78.30 type 0.0
+nas en full 50 1 token 79.02 type 0.0
+nas en full 50 2 token 79.06 type 0.0
+nas en full 100 0 token 89.24 type 0.0
+nas en full 100 1 token 88.80 type 0.0
+nas en full 100 2 token 89.39 type 0.0
+nas en full 300 0 token 94.93 type 0.0
+nas en full 300 1 token 94.69 type 0.0
+empty file found for ../data/mwc/en/full/2/300/nas//generated_wordlist.txt
+
+nas fi 1m 50 0 token 36.45 type 04.29
+nas fi 1m 50 1 token 34.70 type 04.03
+nas fi 1m 50 2 token 36.99 type 04.69
+nas fi 1m 100 0 token 54.71 type 08.07
+nas fi 1m 100 1 token 55.80 type 07.97
+nas fi 1m 100 2 token 54.50 type 07.59
+---- BEST TYPE PERFORMANCE FI -----------------------
+nas fi 1m 300 0 token 76.10 type 13.88
+nas fi 1m 300 1 token 75.15 type 13.34
+nas fi 1m 300 2 token 76.02 type 14.33
+-----------------------------------------------------
+nas fi 5m 50 0 token 51.12 type 03.02
+nas fi 5m 50 1 token 50.25 type 02.82
+nas fi 5m 50 2 token 50.78 type 03.00
+nas fi 5m 100 0 token 66.17 type 04.87
+nas fi 5m 100 1 token 67.16 type 05.25
+nas fi 5m 100 2 token 68.50 type 05.32
+nas fi 5m 300 0 token 81.48 type 08.51
+nas fi 5m 300 1 token 81.31 type 08.46
+nas fi 5m 300 2 token 81.74 type 08.71
+
+nas fi full 50 0 token 55.55 type 0.0
+nas fi full 50 1 token 53.22 type 0.0
+nas fi full 50 2 token 54.18 type 0.0
+nas fi full 100 0 token 70.08 type 0.0
+nas fi full 100 1 token 69.56 type 0.0
+nas fi full 100 2 token 69.76 type 0.0
+
+BEST TOKEN PERFORMANCE FI ------------------------
+nas fi full 300 0 token 82.91 type 0.0
+nas fi full 300 1 token 83.33 type 0.0
+nas fi full 300 2 token 82.22 type 0.0
+-------------------------------------------------
+gru en 1m 50 0 token 68.07 type 05.55
+gru en 1m 50 1 token 66.16 type 05.15
+gru en 1m 50 2 token 67.40 type 05.34
+gru en 1m 100 0 token 81.56 type 07.28
+gru en 1m 100 1 token 81.08 type 06.82
+gru en 1m 100 2 token 81.83 type 07.12
+gru en 1m 300 0 token 00.60 type 00.18
+gru en 1m 300 1 token 87.45 type 08.54
+gru en 1m 300 2 token 89.34 type 09.28
+
+gru en 5m 50 0 token 68.55 type 03.29
+gru en 5m 50 1 token 69.61 type 03.39
+gru en 5m 50 2 token 68.60 type 03.46
+gru en 5m 100 0 token 83.35 type 04.13
+gru en 5m 100 1 token 82.86 type 04.59
+gru en 5m 100 2 token 82.78 type 04.71
+gru en 5m 300 0 token 92.18 type 06.17
+gru en 5m 300 1 token 91.98 type 06.43
+gru en 5m 300 2 token 91.78 type 06.21
+
+gru en full 50 0 token 69.48 type 0.0
+gru en full 50 1 token 70.55 type 0.0
+gru en full 50 2 token 71.01 type 0.0
+gru en full 100 0 token 84.83 type 0.0
+gru en full 100 1 token 84.82 type 0.0
+gru en full 100 2 token 84.28 type 0.0
+gru en full 300 0 token 80.76 type 0.0
+gru en full 300 1 token 82.36 type 0.0
+gru en full 300 2 token 82.88 type 0.0
+
+gru fi 1m 50 0 token 40.37 type 04.65
+gru fi 1m 50 1 token 41.08 type 04.91
+gru fi 1m 50 2 token 39.57 type 04.64
+gru fi 1m 100 0 token 59.42 type 08.60
+gru fi 1m 100 1 token 60.14 type 08.36
+gru fi 1m 100 2 token 60.70 type 08.63
+gru fi 1m 300 0 token 73.63 type 12.52
+gru fi 1m 300 1 token 74.48 type 12.27
+gru fi 1m 300 2 token 73.52 type 12.42
+
+gru fi 5m 50 0 token 44.65 type 02.48
+gru fi 5m 50 1 token 43.97 type 02.44
+gru fi 5m 50 2 token 44.87 type 02.46
+gru fi 5m 100 0 token 63.22 type 04.10
+gru fi 5m 100 1 token 62.51 type 04.06
+gru fi 5m 100 2 token 63.07 type 04.31
+gru fi 5m 300 0 token 78.76 type 08.09
+gru fi 5m 300 1 token 0.0 type 0.0
+gru fi 5m 300 2 token 78.79 type 08.22
+
+gru fi full 50 0 token 47.14 type 0.0
+gru fi full 50 1 token 45.87 type 0.0
+gru fi full 50 2 token 45.67 type 0.0
+gru fi full 100 0 token 63.24 type 0.0
+gru fi full 100 1 token 64.19 type 0.0
+gru fi full 100 2 token 64.09 type 0.0
+empty file found for ../data/mwc/fi/full/0/300/gru//generated_wordlist.txt
+gru fi full 300 1 token 46.43 type 0.0
+gru fi full 300 2 token 72.59 type 0.0
+
+rnn en 1m 50 0 token 57.44 type 04.42
+rnn en 1m 50 1 token 58.37 type 04.58
+rnn en 1m 50 2 token 57.37 type 04.47
+rnn en 1m 100 0 token 73.94 type 06.15
+rnn en 1m 100 1 token 73.05 type 06.24
+rnn en 1m 100 2 token 73.71 type 05.96
+rnn en 1m 300 0 token 86.56 type 08.31
+rnn en 1m 300 1 token 86.19 type 08.46
+rnn en 1m 300 2 token 85.89 type 08.37
+
+rnn en 5m 50 0 token 56.75 type 02.65
+rnn en 5m 50 1 token 56.97 type 02.99
+rnn en 5m 50 2 token 55.83 type 02.78
+rnn en 5m 100 0 token 73.80 type 03.68
+rnn en 5m 100 1 token 74.47 type 03.98
+rnn en 5m 100 2 token 73.65 type 03.73
+rnn en 5m 300 0 token 89.48 type 05.66
+rnn en 5m 300 1 token 89.66 type 05.84
+rnn en 5m 300 2 token 89.83 type 06.10
+
+rnn en full 50 0 token 58.23 type 0.0
+rnn en full 50 1 token 57.98 type 0.0
+rnn en full 50 2 token 58.45 type 0.0
+rnn en full 100 0 token 75.25 type 0.0
+rnn en full 100 1 token 75.03 type 0.0
+rnn en full 100 2 token 75.57 type 0.0
+rnn en full 300 0 token 73.07 type 0.0
+rnn en full 300 1 token 71.23 type 0.0
+rnn en full 300 2 token 75.07 type 0.0
+
+rnn fi 1m 50 0 token 30.10 type 03.60
+rnn fi 1m 50 1 token 28.75 type 03.23
+rnn fi 1m 50 2 token 29.69 type 03.36
+rnn fi 1m 100 0 token 47.86 type 05.97
+rnn fi 1m 100 1 token 48.00 type 05.80
+rnn fi 1m 100 2 token 48.29 type 05.74
+rnn fi 1m 300 0 token 69.56 type 10.32
+rnn fi 1m 300 1 token 68.92 type 10.29
+rnn fi 1m 300 2 token 69.63 type 10.60
+
+rnn fi 5m 50 0 token 32.13 type 01.81
+rnn fi 5m 50 1 token 32.69 type 01.79
+rnn fi 5m 50 2 token 32.04 type 01.83
+rnn fi 5m 100 0 token 50.00 type 02.72
+rnn fi 5m 100 1 token 49.65 type 02.69
+rnn fi 5m 100 2 token 50.23 type 02.89
+rnn fi 5m 300 0 token 72.45 type 06.15
+rnn fi 5m 300 1 token 73.32 type 06.07
+rnn fi 5m 300 2 token 71.98 type 06.05
+
+rnn fi full 50 0 token 33.89 type 0.0
+rnn fi full 50 1 token 33.49 type 0.0
+rnn fi full 50 2 token 32.70 type 0.0
+rnn fi full 100 0 token 50.97 type 0.0
+rnn fi full 100 1 token 49.91 type 0.0
+rnn fi full 100 2 token 50.92 type 0.0
+rnn fi full 300 0 token 53.02 type 0.0
+rnn fi full 300 1 token 57.72 type 0.0
+rnn fi full 300 2 token 58.03 type 0.0
+
+lstm en 1m 50 0 token 55.47 type 04.75
+lstm en 1m 50 1 token 53.10 type 04.36
+lstm en 1m 50 2 token 55.49 type 04.95
+lstm en 1m 100 0 token 67.06 type 06.01
+lstm en 1m 100 1 token 68.01 type 05.98
+lstm en 1m 100 2 token 67.19 type 05.89
+lstm en 1m 300 0 token 88.16 type 08.57
+lstm en 1m 300 1 token 88.74 type 08.80
+lstm en 1m 300 2 token 88.86 type 09.32
+
+lstm en 5m 50 0 token 63.79 type 03.34
+lstm en 5m 50 1 token 63.26 type 03.47
+lstm en 5m 50 2 token 63.85 type 03.32
+lstm en 5m 100 0 token 73.35 type 04.24
+lstm en 5m 100 1 token 74.79 type 04.41
+lstm en 5m 100 2 token 73.39 type 04.12
+lstm en 5m 300 0 token 90.01 type 06.17
+lstm en 5m 300 1 token 89.47 type 06.07
+lstm en 5m 300 2 token 90.03 type 05.92
+
+lstm en full 50 0 token 70.27 type 0.0
+lstm en full 50 1 token 72.07 type 0.0
+lstm en full 50 2 token 72.25 type 0.0
+lstm en full 100 0 token 76.73 type 0.0
+lstm en full 100 1 token 78.29 type 0.0
+lstm en full 100 2 token 78.10 type 0.0
+BEST TOKEN PERFORMANCE ENGLISH-------------------------------------------
+lstm en full 300 0 token 91.79 type 0.0
+lstm en full 300 1 token 93.37 type 0.0
+lstm en full 300 2 token 92.84 type 0.0
+-------------------------------------------------------------------------
+lstm fi 1m 50 0 token 35.61 type 04.47
+lstm fi 1m 50 1 token 35.40 type 04.29
+lstm fi 1m 50 2 token 32.34 type 03.87
+lstm fi 1m 100 0 token 39.81 type 05.24
+lstm fi 1m 100 1 token 43.73 type 05.80
+lstm fi 1m 100 2 token 40.78 type 05.24
+lstm fi 1m 300 0 token 68.03 type 12.16
+lstm fi 1m 300 1 token 67.08 type 11.69
+lstm fi 1m 300 2 token 67.33 type 11.28
+
+lstm fi 5m 50 0 token 42.13 type 02.24
+lstm fi 5m 50 1 token 43.88 type 02.50
+lstm fi 5m 50 2 token 43.74 type 02.46
+lstm fi 5m 100 0 token 50.84 type 03.11
+lstm fi 5m 100 1 token 51.95 type 03.03
+lstm fi 5m 100 2 token 50.36 type 03.07
+lstm fi 5m 300 0 token 71.21 type 04.57
+lstm fi 5m 300 1 token 74.12 type 06.29
+lstm fi 5m 300 2 token 72.98 type 05.27
+
+lstm fi full 50 0 token 48.50 type 0.0
+lstm fi full 50 1 token 44.66 type 0.0
+lstm fi full 50 2 token 46.01 type 0.0
+lstm fi full 100 0 token 55.74 type 0.0
+lstm fi full 100 1 token 52.26 type 0.0
+lstm fi full 100 2 token 52.58 type 0.0
+lstm fi full 300 0 token 79.87 type 0.0
+lstm fi full 300 1 token 79.04 type 0.0
+lstm fi full 300 2 token 75.15 type 0.0

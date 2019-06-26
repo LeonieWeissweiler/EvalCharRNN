@@ -11,7 +11,8 @@ models = ["nas", "gru", "rnn", "lstm"]
 sample_modes = ["0", "1", "2"] #0 to use max at each timestep, 1 to sample at each timestep, 2 to sample on spaces')
 rnn_sizes = ["50", "100", "300"]
 train_sizes = ["1m", "5m", "full"]
-metrics = ["token", "type"]
+metrics = ["correctness", "new_correctness"]
+tokentypes = ["token", "type"]
 corpus = "mwc"
 letters = regex.compile(r'[^\p{L}\p{M}]')
 numbers = regex.compile(r'[0-9]+')
@@ -20,16 +21,18 @@ spaces = regex.compile(r'\s+')
 results_map = {} #language model samplemode (train_size, rnn_size)
 for metric in metrics:
     results_map[metric] = {}
-    for language in languages:
-        results_map[metric][language]={}
-        for model in models:
-            results_map[metric][language][model] = {}
-            for sample_mode in sample_modes:
-                results_map[metric][language][model][sample_mode] = {}
-                for train_size in train_sizes:
-                    results_map[metric][language][model][sample_mode][train_size] = {}
-                    # for rnn_size in rnn_sizes:
-                    #     results_map[metric][language][model][sample_mode][train_size][rnn_size] = 0
+    for tokentype in tokentypes:
+        results_map[metric][tokentype] = {}
+        for language in languages:
+            results_map[metric][tokentype][language]={}
+            for model in models:
+                results_map[metric][tokentype][language][model] = {}
+                for sample_mode in sample_modes:
+                    results_map[metric][tokentype][language][model][sample_mode] = {}
+                    for train_size in train_sizes:
+                        results_map[metric][tokentype][language][model][sample_mode][train_size] = {}
+                        for rnn_size in rnn_sizes:
+                            results_map[metric][tokentype][language][model][sample_mode][train_size][rnn_size] = 0
 
 def main(language, train_size, sample_mode, rnn_size, model):
     path = "../data/" + corpus + "/" + language + "/" + train_size + "/" + sample_mode + "/" + rnn_size + "/" + model + "/"
@@ -53,27 +56,41 @@ def main(language, train_size, sample_mode, rnn_size, model):
         huge_dict[word] = int(freq)
     huge_file.close()
 
-    if train_size == "full":
-        input_dict = huge_dict
-    else:
-        input_dict = {}
-        input_file = open(path_train + "/input_wordlist.txt")
-        for line in input_file:
-            word, freq = line.split(" ")
-            input_dict[word] = int(freq)
-        input_file.close()
+    input_dict = {}
+    input_file = open(path_train + "/input_wordlist.txt")
+    for line in input_file:
+        word, freq = line.split(" ")
+        input_dict[word] = int(freq)
+    input_file.close()
 
-    good_tokens = np.sum([gen_dict[word] if word in huge_dict else 0 for word in gen_dict.keys()])
-    new_types = np.sum([1 if word in huge_dict and word not in input_dict else 0 for word in gen_dict.keys()])
+    good_tokens = np.sum([gen_dict[word] if word in huge_dict else 0 for word in gen_dict.keys()]) #tokens in huge
+    new_good_tokens = np.sum([gen_dict[word] if word in huge_dict and word not in input_dict else 0 for word in gen_dict.keys()]) #unique new good tokenwise
+    new_tokens = np.sum([gen_dict[word] if word not in input_dict else 0 for word in gen_dict.keys()]) #unique new good and bad types
 
-    token_performance = str(good_tokens / sum(gen_dict.values()))
-    token_regex = re.compile(r'(\d{1,2}\.\d{4}).*')
-    token_performance = re.sub(token_regex, r'\1' , token_performance)
-    type_performance = str(new_types)
+    good_types = np.sum([1 if word in huge_dict else 0 for word in gen_dict.keys()]) #types in huge
+    new_good_types = np.sum([1 if word in huge_dict and word not in input_dict else 0 for word in gen_dict.keys()]) #unique new good typewise
+    new_types = np.sum([1 if word not in input_dict else 0 for word in gen_dict.keys()]) #unique new good and bad types
 
-    results_map["token"][language][model][sample_mode][train_size][rnn_size] = token_performance
-    results_map["type"][language][model][sample_mode][train_size][rnn_size] = type_performance
-    print(model, language, train_size, rnn_size, sample_mode, "token", token_performance, "type", type_performance)
+
+    # percentage_regex = re.compile(r'\d{1,2}\.(\d{2})(\d{2}).*')
+
+    correctness_percentage_token = str(good_tokens / sum(gen_dict.values())) #overall correct tokens
+    # correctness_percentage_token = re.sub(percentage_regex, r'\1.\2' , correctness_percentage_token)
+    correctness_percentage_type = str(good_types / len(gen_dict.values())) #overall correct types
+    # correctness_percentage_type = re.sub(percentage_regex, r'\1.\2' , correctness_percentage_type)
+
+    new_sensibleness_token = str(new_good_tokens / new_tokens) #what's good out of new tokens
+    # new_sensibleness_token = re.sub(percentage_regex, r'\1.\2' , new_sensibleness_token)
+    new_sensibleness_type = str(new_good_types / new_types) #what's good out of new types
+    # new_sensibleness_type = re.sub(percentage_regex, r'\1.\2' , new_sensibleness_type)
+
+
+    results_map["correctness"]["token"][language][model][sample_mode][train_size][rnn_size] = correctness_percentage_token
+    results_map["correctness"]["type"][language][model][sample_mode][train_size][rnn_size] = correctness_percentage_type
+    results_map["new_correctness"]["token"][language][model][sample_mode][train_size][rnn_size] = new_sensibleness_token
+    results_map["new_correctness"]["type"][language][model][sample_mode][train_size][rnn_size] = new_sensibleness_type
+
+    print(model, language, train_size, rnn_size, sample_mode, "token overall", correctness_percentage_token, "type overall", correctness_percentage_type,"token new", new_sensibleness_token, "type new", new_sensibleness_type)
 
     return results_map
 
@@ -85,3 +102,5 @@ for model in models:
             for rnn_size in rnn_sizes:
                 for sample_mode in sample_modes:
                     main(language, train_size, sample_mode, rnn_size, model)
+
+# main("fi", "5m", "1", "300", "gru")

@@ -1,0 +1,79 @@
+nas en 1m 50 token 62.71 & 05.16
+nas en 1m 100 token 78.49 & 07.25
+nas en 1m 300 token 91.62 & 10.51
+nas en 5m 50 token 71.54 & 03.99
+nas en 5m 100 token 85.40 & 05.17
+nas en 5m 300 token 94.45 & 06.83
+nas en full 50 token 78.80 & 01.92
+nas en full 100 token 89.15 & 02.90
+nas en full 300 token 94.73 & 07.22
+
+nas fi 1m 50 token 36.05 & 04.34
+nas fi 1m 100 token 55.00 & 07.87
+nas fi 1m 300 token 75.76 & 13.85
+nas fi 5m 50 token 50.72 & 02.95
+nas fi 5m 100 token 67.28 & 05.15
+nas fi 5m 300 token 81.51 & 08.56
+nas fi full 50 token 54.32 & 02.44
+nas fi full 100 token 69.80 & 04.95
+nas fi full 300 token 82.82 & 12.63
+
+gru en 1m 50 token 67.21 & 05.35
+gru en 1m 100 token 81.49 & 07.07
+gru en 1m 300 token 59.13 & 06.00
+gru en 5m 50 token 68.92 & 03.38
+gru en 5m 100 token 83.00 & 04.48
+gru en 5m 300 token 91.98 & 06.27
+gru en full 50 token 70.35 & 01.42
+gru en full 100 token 84.64 & 02.32
+gru en full 300 token 82.00 & 02.12
+
+gru fi 1m 50 token 40.34 & 04.74
+gru fi 1m 100 token 60.09 & 08.53
+gru fi 1m 300 token 73.88 & 12.40
+gru fi 5m 50 token 44.50 & 02.46
+gru fi 5m 100 token 62.93 & 04.16
+gru fi 5m 300 token 78.77 & 08.16
+gru fi full 50 token 46.23 & 01.86
+gru fi full 100 token 63.84 & 03.76
+gru fi full 300 token 64.68 & 05.07
+
+rnn en 1m 50 token 57.73 & 04.49
+rnn en 1m 100 token 73.57 & 06.12
+rnn en 1m 300 token 86.21 & 08.38
+rnn en 5m 50 token 56.52 & 02.81
+rnn en 5m 100 token 73.97 & 03.80
+rnn en 5m 300 token 89.66 & 05.86
+rnn en full 50 token 58.22 & 01.14
+rnn en full 100 token 75.28 & 01.63
+rnn en full 300 token 73.12 & 01.96
+
+rnn fi 1m 50 token 29.51 & 03.40
+rnn fi 1m 100 token 48.05 & 05.84
+rnn fi 1m 300 token 69.37 & 10.40
+rnn fi 5m 50 token 32.29 & 01.81
+rnn fi 5m 100 token 49.96 & 02.77
+rnn fi 5m 300 token 72.58 & 06.09
+rnn fi full 50 token 33.36 & 01.24
+rnn fi full 100 token 50.60 & 02.02
+rnn fi full 300 token 56.25 & 02.94
+
+lstm en 1m 50 token 54.69 & 04.69
+lstm en 1m 100 token 67.42 & 05.96
+lstm en 1m 300 token 88.59 & 08.90
+lstm en 5m 50 token 63.63 & 03.38
+lstm en 5m 100 token 73.84 & 04.26
+lstm en 5m 300 token 89.84 & 06.05
+lstm en full 50 token 71.53 & 01.59
+lstm en full 100 token 77.71 & 01.77
+lstm en full 300 token 92.67 & 04.70
+
+lstm fi 1m 50 token 34.45 & 04.21
+lstm fi 1m 100 token 41.44 & 05.43
+lstm fi 1m 300 token 67.48 & 11.71
+lstm fi 5m 50 token 43.25 & 02.40
+lstm fi 5m 100 token 51.05 & 03.07
+lstm fi 5m 300 token 72.77 & 05.38
+lstm fi full 50 token 46.39 & 01.87
+lstm fi full 100 token 53.53 & 02.40
+lstm fi full 300 token 78.02 & 08.68

@@ -1,0 +1,126 @@
+%
+% File eacl2017.tex
+%
+%% Based on the style files for ACL-2016
+%% Based on the style files for ACL-2015, with some improvements
+%%  taken from the NAACL-2016 style
+%% Based on the style files for ACL-2014, which were, in turn,
+%% Based on the style files for ACL-2013, which were, in turn,
+%% Based on the style files for ACL-2012, which were, in turn,
+%% based on the style files for ACL-2011, which were, in turn,
+%% based on the style files for ACL-2010, which were, in turn,
+%% based on the style files for ACL-IJCNLP-2009, which were, in turn,
+%% based on the style files for EACL-2009 and IJCNLP-2008...
+
+%% Based on the style files for EACL 2006 by
+%%e.agirre@ehu.es or Sergi.Balari@uab.es
+%% and that of ACL 08 by Joakim Nivre and Noah Smith
+
+\documentclass[11pt]{article}
+\usepackage{eacl2017}
+\usepackage{times}
+\usepackage{url}
+\usepackage{latexsym}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{arydshln}
+
+%\eaclfinalcopy % Uncomment this line for the final submission
+%\def\eaclpaperid{***} %  Enter the acl Paper ID here
+
+%\setlength\titlebox{5cm}
+% You can expand the titlebox if you need extra space
+% to show all the authors. Please do not make the titlebox
+% smaller than 5cm (the original size); we will check this
+% in the camera-ready version and ask you to change it back.
+
+\newcommand\BibTeX{B{\sc ib}\TeX}
+
+\title{Leonie: Evaluating Char-level RNNs}
+
+\author{First Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  {\tt email@domain} \\\And
+  Second Author \\
+  Affiliation / Address line 1 \\
+  Affiliation / Address line 2 \\
+  Affiliation / Address line 3 \\
+  {\tt email@domain} \\}
+
+\date{}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+  abstract
+\end{abstract}
+
+\section{Introduction}
+\BibTeX
+
+\section{Related Work}
+\label{sec:related}
+\cite{Gusfield:97} % DUMMY CITATION
+
+\section{Experiments}
+
+\section{Results}
+
+\begin{table}
+\label{table-EN}
+\resizebox{\textwidth}{!}{
+  \begin{tabular}{cc|@{\extracolsep{2pt}}ccc:ccc:ccc|ccc:ccc:ccc|ccc:ccc:ccc@{}}
+      &&\multicolumn{27}{c}{EN}\\
+      \cline{3-29}
+      &&\multicolumn{3}{c}{Hidden State Size=50}&\multicolumn{3}{c}{Hidden State Size=100}&\multicolumn{3}{c}{Hidden State Size=300}\\
+      \cline{3-5}\cline{6-8}\cline{9-11}
+      \textsc{model}&\textsc{data size}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}\\\hline
+\multirow{ 3}{*}{LSTM} &1M& 54.69 & 04.69 & 00.00 & 67.42 & 05.96 & 00.00 & 88.59 & 08.90 & 00.00\\
+      &5M& 63.63 & 03.38 & 00.00 & 73.84 & 04.26 & 00.00 & 89.84 & 06.05 & 00.00\\
+      &\textsc{full}& 71.53 & 01.59 & 00.00 & 77.71 & 01.77 & 00.00 & 92.67 & 04.70 & 00.00\\\hline\hline
+       \multirow{ 3}{*}{RNN} &1M& 57.73 & 04.49 & 00.00 & 73.57 & 06.12 & 00.00 & 86.21 & 08.38 & 00.00\\
+      &5M& 56.52 & 02.81 & 00.00 & 73.97 & 03.80 & 00.00 & 89.66 & 05.86 & 00.00\\
+      &\textsc{full}& 58.22 & 01.14 & 00.00 & 75.28 & 01.63 & 00.00 & 73.12 & 01.96 & 00.00\\\hline\hline
+       \multirow{ 3}{*}{GRU} &1M& 67.21 & 05.35 & 00.00 & 81.49 & 07.07 & 00.00 & 59.13 & 06.00 & 00.00\\
+      &5M& 68.92 & 03.38 & 00.00 & 83.00 & 04.48 & 00.00 & 91.98 & 06.27 & 00.00\\
+      &\textsc{full}& 70.35 & 01.42 & 00.00 & 39.81 & 05.24 & 00.00 & 82.00 & 02.12 & 00.00\\\hline\hline
+\multirow{ 3}{*}{NAS} &1M& 62.71 & 05.16 & 00.00 & 84.64 & 02.32 & 00.00 & 82.00 & 02.12 & 00.00\\
+      &5M& 71.54 & 03.99 & 00.00 & 85.40 & 05.17 & 00.00 & 94.45 & 06.83 & 00.00\\
+      &\textsc{full}& 78.80 & 01.92 & 00.00 & 89.15 & 02.90 & 00.00 & 94.73 & 07.22 & 00.00\\\hline
+  \end{tabular}}
+\end{table}
+
+\begin{table}
+\label{table-FI}
+\resizebox{\textwidth}{!}{
+  \begin{tabular}{cc|@{\extracolsep{2pt}}ccc:ccc:ccc|ccc:ccc:ccc|ccc:ccc:ccc@{}}
+      &&\multicolumn{27}{c}{FI}\\
+      \cline{3-29}
+      &&\multicolumn{3}{c}{Hidden State Size=50}&\multicolumn{3}{c}{Hidden State Size=100}&\multicolumn{3}{c}{Hidden State Size=300}\\
+      \cline{3-5}\cline{6-8}\cline{9-11}
+      \textsc{model}&\textsc{data size}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}&Met1&Met2&\textsc{pplx}\\\hline
+\multirow{ 3}{*}{LSTM} &1M& 34.45 & 04.21 & 00.00 & 41.44 & 05.43 & 00.00 & 67.48 & 11.71 & 00.00\\
+      &5M&43.25 & 02.40 & 00.00 & 51.05 & 03.07 & 00.00 & 72.77 & 05.38 & 00.00\\
+      &\textsc{full}& 46.39 & 01.87 & 00.00 & 53.53 & 02.40 & 00.00 & 78.02 & 08.68 & 00.00\\\hline\hline
+       \multirow{ 3}{*}{RNN} &1M& 29.51 & 03.40 & 00.00 & 48.05 & 05.84 & 00.00 & 69.37 & 10.40 & 00.00\\
+      &5M& 32.29 & 01.81 & 00.00 & 49.96 & 02.77 & 00.00 & 72.58 & 06.09 & 00.00\\
+      &\textsc{full}& 33.36 & 01.24 & 00.00 & 50.60 & 02.02 & 00.00 & 56.25 & 02.94 & 00.00\\\hline\hline
+       \multirow{ 3}{*}{GRU} &1M& 40.34 & 04.74 & 00.00 & 60.09 & 08.53 & 00.00 & 73.88 & 12.40 & 00.00\\
+      &5M& 44.50 & 02.46 & 00.00 & 62.93 & 04.16 & 00.00 & 52.51 & 05.44 & 00.00\\
+      &\textsc{full}& 46.23 & 01.86 & 00.00 & 63.84 & 03.76 & 00.00 & 64.68 & 05.07 & 00.00\\\hline\hline
+\multirow{ 3}{*}{NAS} &1M& 36.05 & 04.34 & 00.00 & 55.00 & 07.87 & 00.00 & 75.76 & 13.85 & 00.00\\
+      &5M& 50.72 & 02.95 & 00.00 & 67.28 & 05.15 & 00.00 & 81.51 & 08.56 & 00.00\\
+      &\textsc{full}& 54.32 & 02.44 & 00.00 & 69.80 & 04.95 & 00.00 & 82.82 & 12.63 & 00.00\\\hline
+  \end{tabular}}
+\end{table}
+
+
+\section*{Conclusion}
+
+\bibliography{eacl2017}
+\bibliographystyle{eacl2017}
+
+\end{document}

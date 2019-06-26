@@ -56,22 +56,19 @@ def do_wordlist(source, target):
 def main(language, train_size, sample_mode, rnn_size, model):
     print(language, train_size, sample_mode, rnn_size, model)
     path = os.path.join(data_dir, corpus, language, train_size, sample_mode, rnn_size, model)
-    
+
     do_wordlist(path + "/generated.txt", path + "/generated_wordlist.txt")
-    
-    
-    
+
 
 for language in languages:
     print(language)
     lang_dir = os.path.join(data_dir, corpus, language)
     do_wordlist(lang_dir + "/huge.txt", lang_dir + "/huge_wordlist.txt")
-    
+
     for train_size in train_sizes:
         print(train_size)
-        if train_size != "full":
-            train_dir = os.path.join(data_dir, corpus, language, train_size)
-            do_wordlist(train_dir + "/input.txt", train_dir + "/input_wordlist.txt")
+        train_dir = os.path.join(data_dir, corpus, language, train_size)
+        do_wordlist(train_dir + "/input.txt", train_dir + "/input_wordlist.txt")
 
 
 list = [(language, train_size, sample_mode, rnn_size, model) for language in languages for train_size in train_sizes for sample_mode in sample_modes for rnn_size in rnn_sizes for model in models]

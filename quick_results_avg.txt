@@ -1,0 +1,96 @@
+nas en 1m 50 token overall 62.71 type overall 13.28 token new 07.28 type new 05.17
+nas en 1m 100 token overall 078.5 type overall 25.64 token new 08.72 type new 07.25
+nas en 1m 300 token overall 91.62 type overall 52.59 token new 11.63 type new 10.52
+
+nas en 5m 50 token overall 71.54 type overall 21.71 token new 04.72 type new 004.0
+nas en 5m 100 token overall 085.4 type overall 41.32 token new 05.61 type new 05.18
+nas en 5m 300 token overall 94.45 type overall 69.48 token new 07.12 type new 06.83
+
+nas en full 50 token overall 078.8 type overall 30.72 token new 02.13 type new 01.92
+nas en full 100 token overall 89.15 type overall 53.24 token new 03.11 type new 002.9
+nas en full 300 token overall 94.73 type overall 73.62 token new 07.78 type new 07.23
+--------------------------------------------------------------------------------
+nas fi 1m 50 token overall 36.05 type overall 10.89 token new 05.71 type new 04.34
+nas fi 1m 100 token overall 55.01 type overall 22.41 token new 09.38 type new 07.88
+nas fi 1m 300 token overall 75.76 type overall 43.96 token new 15.79 type new 13.85
+
+nas fi 5m 50 token overall 50.72 type overall 20.55 token new 03.47 type new 02.95
+nas fi 5m 100 token overall 67.28 type overall 36.49 token new 05.61 type new 05.15
+nas fi 5m 300 token overall 81.51 type overall 057.6 token new 08.93 type new 08.56
+
+nas fi full 50 token overall 54.32 type overall 24.16 token new 02.76 type new 02.44
+nas fi full 100 token overall 69.81 type overall 41.47 token new 05.42 type new 04.95
+nas fi full 300 token overall 82.83 type overall 62.46 token new 13.67 type new 12.63
+--------------------------------------------------------------------------------
+gru en 1m 50 token overall 67.21 type overall 15.69 token new 07.53 type new 05.35
+gru en 1m 100 token overall 081.5 type overall 30.65 token new 08.31 type new 07.08
+gru en 1m 300 token overall 59.13 type overall 28.67 token new 06.64 type new 006.0
+
+gru en 5m 50 token overall 68.92 type overall 18.74 token new 04.31 type new 03.38
+gru en 5m 100 token overall 083.0 type overall 36.53 token new 005.0 type new 04.48
+gru en 5m 300 token overall 91.98 type overall 60.46 token new 06.49 type new 06.27
+
+gru en full 50 token overall 70.35 type overall 20.74 token new 01.69 type new 01.42
+gru en full 100 token overall 84.65 type overall 41.01 token new 02.55 type new 02.33
+gru en full 300 token overall 082.0 type overall 36.12 token new 02.28 type new 02.12
+--------------------------------------------------------------------------------
+gru fi 1m 50 token overall 40.35 type overall 12.82 token new 06.09 type new 04.74
+gru fi 1m 100 token overall 60.09 type overall 26.52 token new 09.91 type new 08.53
+gru fi 1m 300 token overall 73.88 type overall 41.51 token new 13.75 type new 12.41
+
+gru fi 5m 50 token overall 044.5 type overall 16.29 token new 02.99 type new 02.46
+gru fi 5m 100 token overall 62.94 type overall 31.53 token new 04.53 type new 04.16
+gru fi 5m 300 ERROR
+gru fi 5m 300 token overall 52.52 type overall 35.81 token new 05.71 type new 05.44
+
+gru fi full 50 token overall 46.23 type overall 17.75 token new 02.16 type new 01.87
+gru fi full 100 token overall 63.85 type overall 34.05 token new 04.11 type new 03.77
+gru fi full 300 token overall 64.69 type overall 038.2 token new 05.52 type new 05.07
+--------------------------------------------------------------------------------
+rnn en 1m 50 token overall 57.73 type overall 10.64 token new 007.0 type new 004.5
+rnn en 1m 100 token overall 73.57 type overall 20.31 token new 07.76 type new 06.12
+rnn en 1m 300 token overall 86.22 type overall 37.72 token new 09.36 type new 08.38
+
+rnn en 5m 50 token overall 56.52 type overall 11.35 token new 04.08 type new 02.81
+rnn en 5m 100 token overall 73.98 type overall 23.52 token new 04.56 type new 003.8
+rnn en 5m 300 token overall 89.66 type overall 52.37 token new 06.17 type new 05.87
+
+rnn en full 50 token overall 58.23 type overall 12.29 token new 001.5 type new 01.14
+rnn en full 100 token overall 75.29 type overall 25.54 token new 01.89 type new 01.64
+rnn en full 300 token overall 73.13 type overall 23.94 token new 02.32 type new 01.96
+--------------------------------------------------------------------------------
+rnn fi 1m 50 token overall 29.52 type overall 08.11 token new 04.88 type new 003.4
+rnn fi 1m 100 token overall 48.06 type overall 16.97 token new 07.15 type new 05.84
+rnn fi 1m 300 token overall 69.37 type overall 34.71 token new 11.85 type new 10.41
+
+rnn fi 5m 50 token overall 32.29 type overall 09.45 token new 002.5 type new 01.82
+rnn fi 5m 100 token overall 49.97 type overall 19.62 token new 03.28 type new 02.77
+rnn fi 5m 300 token overall 72.59 type overall 42.97 token new 06.49 type new 06.09
+
+rnn fi full 50 token overall 33.36 type overall 10.12 token new 01.72 type new 01.25
+rnn fi full 100 token overall 50.61 type overall 20.91 token new 02.36 type new 02.03
+rnn fi full 300 token overall 56.26 type overall 31.04 token new 03.19 type new 02.95
+--------------------------------------------------------------------------------
+lstm en 1m 50 token overall 54.69 type overall 09.95 token new 007.2 type new 04.69
+lstm en 1m 100 token overall 67.42 type overall 16.34 token new 07.76 type new 05.96
+lstm en 1m 300 token overall 88.59 type overall 43.82 token new 09.98 type new 008.9
+
+lstm en 5m 50 token overall 63.64 type overall 15.51 token new 004.4 type new 03.38
+lstm en 5m 100 token overall 73.85 type overall 23.91 token new 05.08 type new 04.26
+lstm en 5m 300 token overall 89.84 type overall 52.63 token new 06.39 type new 06.06
+
+lstm en full 50 token overall 71.53 type overall 22.07 token new 01.87 type new 01.59
+lstm en full 100 token overall 77.71 type overall 29.01 token new 01.99 type new 01.77
+lstm en full 300 token overall 92.67 type overall 64.97 token new 05.11 type new 04.71
+--------------------------------------------------------------------------------
+lstm fi 1m 50 token overall 34.46 type overall 10.13 token new 05.56 type new 04.21
+lstm fi 1m 100 token overall 41.44 type overall 013.8 token new 06.95 type new 05.43
+lstm fi 1m 300 token overall 67.49 type overall 34.45 token new 13.35 type new 11.71
+
+lstm fi 5m 50 token overall 43.26 type overall 15.29 token new 02.86 type new 02.41
+lstm fi 5m 100 token overall 51.06 type overall 20.82 token new 03.52 type new 03.08
+lstm fi 5m 300 token overall 72.77 type overall 41.37 token new 05.84 type new 05.38
+
+lstm fi full 50 token overall 046.4 type overall 18.31 token new 02.16 type new 01.87
+lstm fi full 100 token overall 53.53 type overall 23.71 token new 02.69 type new 02.41
+lstm fi full 300 token overall 78.03 type overall 53.83 token new 09.76 type new 08.69
